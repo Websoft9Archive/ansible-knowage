@@ -1,0 +1,80 @@
+---
+- include_vars: ../../mysql/defaults/main.yml
+
+- name: add Oracle JAVA PPA
+  apt_repository:
+    repo: ppa:webupd8team/java 
+
+- name: Accept oracle license
+  debconf:
+    name: oracle-java8-installer
+    question: shared/accepted-oracle-license-v1-1
+    value: 'true'
+    vtype: select
+
+- name: Install Oracle JAVA
+  apt:
+    name: [oracle-java8-installer,oracle-java8-set-default]
+
+- name: Download knowage
+  unarchive:
+    src: '{{knowage_url}}'
+    dest: /root/.ansible/tmp
+    remote_src: yes
+    mode: 0750
+                                          
+- name: Rename install package
+  shell: mv Knowage-*.sh  Knowage-CE-Installer-Unix.sh
+  args:
+    chdir: /root/.ansible/tmp
+
+- name: create dir
+  file:
+    path: /data/wwwroot/
+    state: directory
+
+- name: setting MySQL
+  copy:
+    src: mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d
+  notify: restart mysql
+
+- name: upload Install script
+  template:
+    src: install.sh
+    dest: /root/.ansible/tmp
+    mode: 0750
+
+- name: install Knowage
+  shell: /root/.ansible/tmp/install.sh
+      
+
+- name: Setting JRE Securerandom
+  lineinfile:
+    path: /usr/lib/jvm/java-8-oracle/jre/lib/security/java.security
+    regexp: 'securerandom.source=file:/dev/random'
+    line: 'securerandom.source=file:/dev/./urandom'
+
+- name: Create User for Knowage
+  user:
+    name: knowage
+    create_home: no
+    home: /data/wwwroot/Knowage-Server-CE
+    shell: /usr/sbin/nologin
+
+- name: Change Directory owner
+  file:
+    path: /data/wwwroot/Knowage-Server-CE
+    state: directory
+    owner: knowage
+    group: knowage
+    recurse: yes
+
+- name: Setting Knowage Service
+  copy:
+    src: knowage.service
+    dest: /lib/systemd/system
+  notify: restart knowage
+
+- name: Delete tmp
+  shell: rm -rf ~/.ansible

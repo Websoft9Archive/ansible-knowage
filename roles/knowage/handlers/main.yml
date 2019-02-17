@@ -1,0 +1,9 @@
+---
+- name: restart mysql
+  service: name=mysql state=restarted enabled=yes
+
+- name: restart knowage
+  service: name=knowage state=restarted enabled=yes
+
+  
+
