@@ -1,5 +1,5 @@
 #####  组件
-1. Nginx
+1. Nginx 1.14.0
 2. JAVA 1.8
 3. MYSQL 5.6
 4. Knowage 6.3.1
