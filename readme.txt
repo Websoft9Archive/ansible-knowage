@@ -20,8 +20,8 @@ Websoft9 IIS stack ships with the following software versions:
 
 ********
 - Nginx 1.14.0
-- JAVA 1.8
-- MYSQL 5.6
+- JAVA 1.8.0_201
+- MYSQL 5.7.25
 - Knowage 6.3.1
 
 
