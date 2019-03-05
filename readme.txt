@@ -23,6 +23,8 @@ Websoft9 IIS stack ships with the following software versions:
 - JAVA 1.8.0_201
 - MYSQL 5.7.25
 - Knowage 6.3.1
+- JDK build 1.8.0_201-b09
+- Apache Tomcat/7.0.50
 
 
 ********
