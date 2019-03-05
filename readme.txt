@@ -16,7 +16,7 @@ Platform. It combines leading open source projects, such as Nginx,MySQL,Java...
 
 2. COMPONENTS and Version
 
-Websoft9 IIS stack ships with the following software versions:
+Websoft9 Kownage stack ships with the following software versions:
 
 ********
 - Nginx 1.14.0
