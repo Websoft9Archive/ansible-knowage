@@ -24,4 +24,4 @@
 
 1. mysql_password: 123456 # mysql 默认密码
 2. remote: no  # 是否开启远程
-3. knowage_url: http://xxx # knowage下载地址
+3. knowage_url: http://xxx # knowage下载地址(roles/knowage/defaults/main.yml) 下载包超过1
