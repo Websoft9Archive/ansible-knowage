@@ -122,12 +122,3 @@
 
 - name: Delete tmp
   shell: rm -rf ~/.ansible
-
-- name: Setting File Permission
-  shell: find /data/* -type f -exec chmod 640 {} \;
-
-- name: Setting knowage Bin File Permission
-  shell: chmod 750 /data/wwwroot/Knowage-Server-CE/bin/*.sh
-
-- name: Setting Directory Permission
-  shell: find /data/* -type d -exec chmod 755 {} \;   
