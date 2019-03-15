@@ -114,14 +114,17 @@
     group: knowage
     recurse: yes
 
-- name: setting Directory
-  shell: chown -R knowage.knowage /data/wwwroot/Knowage-Server-CE
-
 - name: Setting Knowage Service
   copy:
     src: knowage.service
     dest: /lib/systemd/system
   notify: restart knowage
+
+- name: setting Directory
+  shell: chown -R knowage.knowage /data/wwwroot/Knowage-Server-CE
+
+- name: restart knowage
+  service: name=knowage state=restarted enabled=yes
 
 - name: Delete tmp
   shell: rm -rf ~/.ansible
