@@ -14,7 +14,8 @@
 
 - name: Install Oracle JAVA
   apt:
-    name: [oracle-java8-installer,oracle-java8-set-default]
+    name: [openjdk-8-jdk]
+    state: latest
 
 - name: Download knowage
   unarchive:
@@ -49,11 +50,11 @@
   shell: /root/.ansible/tmp/install.sh
       
 
-- name: Setting JRE Securerandom
-  lineinfile:
-    path: /usr/lib/jvm/java-8-oracle/jre/lib/security/java.security
-    regexp: 'securerandom.source=file:/dev/random'
-    line: 'securerandom.source=file:/dev/./urandom'
+# - name: Setting JRE Securerandom
+#   lineinfile:
+#     path: /usr/lib/jvm/java-8-oracle/jre/lib/security/java.security
+#     regexp: 'securerandom.source=file:/dev/random'
+#     line: 'securerandom.source=file:/dev/./urandom'
 
 - name: Create User for Knowage
   user:
