@@ -25,4 +25,10 @@ server {
     proxy_set_header X-Forwarded-Proto $scheme;
     }
 
+
+    #------------- SSL Start --------------
+
+
+    #------------- SSL End  ---------------
+
 }
