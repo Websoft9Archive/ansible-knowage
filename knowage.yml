@@ -1,6 +1,6 @@
 ---
 - name: Knowage
-  hosts: all
+  hosts: knowage
   become: yes
   become_method: sudo
   become_user: ubuntu
