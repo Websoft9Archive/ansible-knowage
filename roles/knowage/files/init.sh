@@ -1,13 +1,13 @@
 #!/bin/bash
 
-old_password=$(cat /root/password.txt | awk -F ":" '{print $2}' )
-new_password=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c10)
+old_password=$(cat /credentials/password.txt | awk -F ":" '{print $2}' )
+new_password=$(</dev/urandom tr -dc '12345qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c10)
 
 sleep 5s
 systemctl restart mysql
 mysqladmin -uroot -p${old_password} password $new_password
 
-echo 'Databases root Password:'$new_password  > /root/password.txt
+echo 'Databases root Password:'$new_password  > /credentials/password.txt
 
 sed -i "s/$old_password/$new_password/g" /data/wwwroot/Knowage-Server-CE/conf/server.xml
 
