@@ -20,14 +20,14 @@
 - name: Download knowage
   unarchive:
     src: '{{knowage_url}}'
-    dest: /root/.ansible/tmp
+    dest: '{{ansible_user_dir}}'
     remote_src: yes
     mode: 0750
                                           
 - name: Rename install package
   shell: mv Knowage-*.sh  Knowage-CE-Installer-Unix.sh
   args:
-    chdir: /root/.ansible/tmp
+    chdir: '{{ansible_user_dir}}'
 
 - name: create dir
   file:
@@ -43,11 +43,11 @@
 - name: upload Install script
   template:
     src: install.sh
-    dest: /root/.ansible/tmp
+    dest: '{{ansible_user_dir}}'
     mode: 0750
 
 - name: install Knowage
-  shell: /root/.ansible/tmp/install.sh      
+  shell: '{{ansible_user_dir}}/install.sh '     
 
 - name: Setting JRE Securerandom
   lineinfile:
@@ -119,17 +119,19 @@
     group: knowage
     recurse: yes
 
+
 - name: Setting Knowage Service
   copy:
     src: knowage.service
     dest: /lib/systemd/system
   notify: restart knowage
 
-- name: setting Directory
-  shell: chown -R knowage.knowage /data/wwwroot/Knowage-Server-CE
 
-- name: restart knowage
-  service: name=knowage state=restarted enabled=yes
+- name: Delete package
+  file:
+    path: "{{ansible_user_dir}}/{{item}}"
+    state: absent
+  with_items:
+   - "{{ansible_user_dir}}/install.sh"
+   - "{{ansible_user_dir}}/Knowage-CE-Installer-Unix.sh"
 
-- name: Delete tmp
-  shell: rm -rf ~/.ansible

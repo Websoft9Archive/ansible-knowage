@@ -53,4 +53,4 @@ root
 n
 y
 n
-"| /root/.ansible/tmp/Knowage-CE-Installer-Unix.sh -c
+"| {{ansible_user_dir}}/Knowage-CE-Installer-Unix.sh -c
