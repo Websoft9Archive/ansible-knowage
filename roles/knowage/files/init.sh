@@ -7,7 +7,7 @@ sleep 5s
 systemctl restart mysql
 mysqladmin -uroot -p${old_password} password $new_password
 
-echo -e 'MySQL username:root\nDatabases root Password:'$new_password  > /credentials/password.txt
+echo -e 'MySQL username:root\nMySQL Password:'$new_password  > /credentials/password.txt
 
 sed -i "s/$old_password/$new_password/g" /data/wwwroot/Knowage-Server-CE/conf/server.xml
 
