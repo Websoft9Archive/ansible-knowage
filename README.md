@@ -30,4 +30,4 @@ Knowage,Nginx,JAVA,MYSQL,phpMyAdmin(Docker)
    
 配置文件：/data/wwwroot/Knowage-Server-CE/conf/server.xml
 
-文档链接：readme.txt
+文档链接：[readme.txt](readme.txt)
