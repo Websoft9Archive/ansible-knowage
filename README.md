@@ -10,7 +10,9 @@ First of all, be sure of having at least 3 GB OF DEDICATED RAM and 2 GB OF FREE 
 ## 版本
 
 本项目采用的源码安装方式，为了保证每次安装为最新版本，需要修改源码地址。
+
 修改方法：roles/knowage/defaults/main.yml的 knowage_url 字段
+
 源码下载地址：https://www.knowage-suite.com/site/knowage-download/
 
 ## 安装指南
