@@ -15,7 +15,7 @@ First of all, be sure of having at least 3 GB OF DEDICATED RAM and 2 GB OF FREE 
 
 ## 安装指南
 
-支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
+本Ansible脚本支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
 
 其中普通用户登录需要增加变量：
 
