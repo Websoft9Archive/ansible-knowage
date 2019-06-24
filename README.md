@@ -1,27 +1,26 @@
-#####  组件
-1. Nginx 1.14.0
-2. JAVA 1.8
-3. MYSQL 5.6
-4. Knowage 6.3.1
+# Knowage自动化安装与部署
 
-##### 目录
-1. MySQL: /data/mysql
-2. Knowage: /data/wwwroot/
+## 操作系统
+目前仅支持Ubuntu16.x以上
 
-##### 用户名/密码信息
-1. knowage: (demo用户可删除,新增用户)
+## 版本
+采用的源码安装方式，为了保证每次安装为最新版本，需要修改源码地址： roles/knowage/defaults/main.yml的knowage_url字段
+
+## 安装指南
+支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。其中普通用户登录需要增加变量：
+
+~~~
+//假设普通用户的username为
+admin_username: websoft9
+~~~
+
+## 组件
+Knowage,Nginx,JAVA,MYSQL,phpMyAdmin(Docker)
+
+## 使用指南
+
+后台账号：
    - demo_admin/demo_admin
    - demo_user/demo_user
-
-2. MySQL : root/123456 (后续添加随机密码)
-
-##### 配置文件
-1. knowage:
-    -  /data/wwwroot/Knowage-Server-CE/conf/server.xml (数据库连接/数据库用户密码信息等)
-
-
-##### ansible-playbook 可选参数
-
-1. mysql_password: 123456 # mysql 默认密码
-2. remote: no  # 是否开启远程
-3. knowage_url: http://xxx # knowage下载地址(roles/knowage/defaults/main.yml) 下载包超过1
+配置文件：/data/wwwroot/Knowage-Server-CE/conf/server.xml
+文档链接：readme.txt
