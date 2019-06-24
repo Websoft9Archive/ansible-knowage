@@ -23,6 +23,6 @@
   - { role: mysql , tags: "mysql"}
   - { role: knowage  , tags: "knowage"} 
   - { role: nginx , tags: "nginx"}
-  - { role: end , tags: "end"}
+  # - { role: end , tags: "end"}
 
     
