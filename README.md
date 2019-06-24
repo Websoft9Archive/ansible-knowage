@@ -1,6 +1,6 @@
 # Knowage自动化安装与部署
 
-本项目是基于Ansible的Knowage自动化安装脚本，实现在Ansible上一键安装Knowage。本项目是开源项目，支持MIT开源协议。
+本项目是基于Ansible的Knowage自动化安装脚本，实现在Ansible上一键安装Knowage。本项目是开源项目，支持MIT开源协议。如果您不熟悉Ansible的使用，您可以直接使用我们在公有云上提供的镜像。
 
 ## 操作系统
 
