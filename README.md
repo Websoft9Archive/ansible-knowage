@@ -1,15 +1,17 @@
 # Knowage自动化安装与部署
 
+本项目是基于Ansible的Knowage自动化安装脚本，实现在Ansible上一键安装Knowage。本项目是开源项目，支持MIT开源协议。
+
 ## 操作系统
 
-目前仅支持Ubuntu16.x以上
+目前仅支持Ubuntu16.x以上部署此脚本
 
 ## 服务器配置要求
 First of all, be sure of having at least 3 GB OF DEDICATED RAM and 2 GB OF FREE SPACE on file system
 
 ## 版本
 
-本项目采用的源码安装方式，为了保证每次安装为最新版本，需要修改源码地址。
+本项目Knowage采用的源码部署方式，为了保证每次安装为最新版本，需要在运行脚本之前Knowage源码下载地址。
 
 修改方法：roles/knowage/defaults/main.yml的 knowage_url 字段
 
