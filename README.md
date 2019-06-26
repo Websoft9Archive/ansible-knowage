@@ -7,7 +7,8 @@
 目前仅支持Ubuntu16.x以上部署此脚本
 
 ## 服务器配置要求
-First of all, be sure of having at least 3 GB OF DEDICATED RAM and 2 GB OF FREE SPACE on file system
+
+最低3G内存，20G系统盘空间，否则无法安装
 
 ## 版本
 
