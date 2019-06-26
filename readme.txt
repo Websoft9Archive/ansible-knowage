@@ -1,4 +1,4 @@
-Websoft9 Kownage Stack 6.3.1
+Websoft9 Kownage Stack 6.4.1
 
 ===========================
 
@@ -22,7 +22,7 @@ Websoft9 Kownage stack ships with the following software versions:
 - Nginx 1.14.0
 - JAVA 1.8.0_201
 - MYSQL 5.7.25
-- Knowage 6.3.1
+- Knowage-6_4_1-CE
 - JDK build 1.8.0_201-b09
 - Apache Tomcat/7.0.50
 
