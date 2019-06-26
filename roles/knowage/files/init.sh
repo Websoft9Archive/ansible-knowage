@@ -11,7 +11,7 @@ echo -e 'MySQL username:root\nMySQL Password:'$new_password  > /credentials/pass
 
 sed -i "s/$old_password/$new_password/g" /data/wwwroot/Knowage-Server-CE/conf/server.xml
 
-systemctl restart knowage.service                                       
+systemctl restart knowage.service                                      
 sed -i "s/\/root\/init.sh//" /etc/rc.local                                                      
 rm -rf /root/init.sh
 
