@@ -129,9 +129,9 @@
 
 - name: Delete package
   file:
-    path: "{{ansible_user_dir}}/{{item}}"
+    path: "/root/{{item}}"
     state: absent
   with_items:
-   - "{{ansible_user_dir}}/install.sh"
-   - "{{ansible_user_dir}}/Knowage-CE-Installer-Unix.sh"
+   - "install.sh"
+   - "Knowage-CE-Installer-Unix.sh"
 
