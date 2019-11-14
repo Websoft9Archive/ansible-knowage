@@ -139,3 +139,10 @@
    - "install.sh"
    - "Knowage-CE-Installer-Unix.sh"
 
+- name: set reverse porxy
+  copy: 
+    src: default
+    dest: /etc/nginx/sites-available
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
