@@ -1,1 +1,4 @@
-knowage.retry
+*.retry
+/.vscode
+hosts
+node_modules
