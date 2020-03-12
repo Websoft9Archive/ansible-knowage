@@ -1,0 +1,3 @@
+#knowage_url: http://libs.websoft9.com/apps/Knowage-6_3_1-CE-Installer-Unix-20190205.zip
+knowage_url: https://websoft9.s3.amazonaws.com/Knowage-6_4_1-CE-Installer-Unix-20190605.zip #foraws
+#knowage_url: https://release.ow2.org/knowage/6.4.1/Installers/Knowage-6_4_1-CE-Installer-Unix-20190605.zip # 官方URL

@@ -1,4 +1,6 @@
 ---
+- include_vars: ../../mysql/defaults/main.yml
+
 - name: add Oracle JAVA PPA
   apt_repository:
     repo: ppa:webupd8team/java 
@@ -17,13 +19,13 @@
 
 - name: Download knowage
   unarchive:
-    src: '{{knowage_download_url}}'
+    src: '{{knowage_url}}'
     dest: '{{ansible_user_dir}}'
     remote_src: yes
     mode: 0750
                                           
 - name: Rename install package
-  shell: mv Knowage-*  Knowage-CE-Installer-Unix.sh
+  shell: mv Knowage-*.sh  Knowage-CE-Installer-Unix.sh
   args:
     chdir: '{{ansible_user_dir}}'
 
@@ -31,6 +33,14 @@
   file:
     path: /data/wwwroot/
     state: directory
+
+- name: setting MySQL
+  copy:
+    src: mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d
+
+- name: restart mysql
+  service: name=mysql state=restarted enabled=yes
 
 - name: upload Install script
   template:
@@ -62,6 +72,47 @@
     group: knowage
     recurse: yes
 
+- name: Setting rc.local
+  file:
+    path: /etc/rc.local
+    state: touch
+    mode: 0750
+
+- name: Write rc.local
+  shell: echo "#!/bin/bash" > /etc/rc.local
+
+- name: restart rc.local
+  service: name=rc.local state=restarted enabled=yes
+
+- name: Create credentials Folder
+  file:
+    path: /credentials
+    state: directory
+
+- name: Create Password doc
+  file:
+    path: /credentials/password.txt
+    mode: 644
+    state: touch
+
+- name: Write Databases Password
+  shell: echo -e 'MySQL username:root\nMySQL Password:'{{mysql_password}}  > /credentials/password.txt
+
+
+- name: Databases Random Password
+  copy: 
+    src: init.sh
+    dest: /root/
+    mode: 0750
+
+- name: Setting Startup
+  lineinfile:
+    path: /etc/rc.local
+    regexp: '/root/init.sh'
+    line: '/root/init.sh'
+    mode: 0750
+
+
 - name: Change Directory owner
   file:
     path: /data/wwwroot/Knowage-Server-CE
@@ -69,6 +120,7 @@
     owner: knowage
     group: knowage
     recurse: yes
+
 
 - name: Setting Knowage Service
   copy:

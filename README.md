@@ -1,43 +1,59 @@
-# Knowage自动化安装与部署
+# Knowage 自动化安装与部署
 
-本项目是基于Ansible的[Knowage](https://www.knowage-suite.com)自动化安装脚本，实现在Ansible上一键安装Knowage。本项目是开源项目，支持MIT开源协议。如果您不熟悉Ansible的使用，您可以直接使用我们在公有云上提供的镜像。
+本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [Knowage](https://www.knowage-suite.com) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Knowage，让原本复杂的安装过程变得没有任何技术门槛。  
 
-## 操作系统
+本项目是开源项目，采用 LGPL3.0 开源协议。
 
-目前仅支持Ubuntu16.x以上部署此脚本
+## 配置要求
 
-## 服务器配置要求
+安装本项目，确保符合如下的条件：
 
-最低3G内存，20G系统盘空间，否则无法安装
+| 条件       | 详情       | 备注  |
+| ------------ | ------------ | ----- |
+| 操作系统       | Ubuntu16.04       |  可选  |
+| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 | 可选 |
+| 私有云|  KVM, VMware, VirtualBox, OpenStack | 可选 |
+| 服务器配置 | 最低1核4G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
 
-## 版本
+## 组件
 
-本项目Knowage采用的源码部署方式，为了保证每次安装为最新版本，需要在运行脚本之前Knowage源码下载地址。
+包含的核心组件为：MySQL，Docker, phpMyAdmin on Docker, Nginx, OpenJDK, Knowage
 
-修改方法：roles/knowage/defaults/main.yml的 knowage_url 字段
+更多请见[参数表](/docs/zh/stack-components.md)
 
-源码下载地址：https://www.knowage-suite.com/site/knowage-download/
+## 本项目安装的是 Knowage 最新版吗？
+
+本项目通过下载 Knowage 源码进行安装，下载链接存储在：[role/knowage/default/main.yml](/roles/knowage/defaults/main.yml)。我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
+
+```
+knowage_download_url: "https://release.ow2.org/knowage/6.4.1/Installers/Knowage-6_4_1-CE-Installer-Unix-20190605.zip "
+```
+
+如果你发现不是最新版本，请到 [knowage 下载页面](https://www.knowage-suite.com/site/knowage-download/)获取最新版源码下载链接，再修改 [main.yml](/roles/knowage/defaults/main.yml) 中的 ```knowage_download_url``` 变量值即可安装最新版 Knowage。  
 
 ## 安装指南
 
-本Ansible脚本支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
+以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
 
-其中普通用户登录需要增加变量：
+```
+wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/install.sh ; bash install.sh repository=knowage
+```
 
-~~~
-//假设普通用户的username为
-admin_username: websoft9
-~~~
+脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
 
-## 组件
-Knowage,Nginx,JAVA,MYSQL,phpMyAdmin(Docker)
+**安装中的注意事项：**  
 
-## 使用指南
+1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
+2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
 
-后台账号：
-   - demo_admin/demo_admin
-   - demo_user/demo_user
-   
-配置文件：/data/wwwroot/Knowage-Server-CE/conf/server.xml
+多种原因导致无法顺利安装，请使用我们在公有云上发布的 [Knowage镜像](https://apps.websoft9.com/knowage) 的部署方式
 
-文档链接：[readme.txt](readme.txt)
+
+## 文档
+
+文档链接：https://support.websoft9.com/docs/knowage/zh
+
+## FAQ
+
+- 命令脚本部署与镜像部署有什么区别？请参考：[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
+- 本项目支持在 Ansible Tower 上运行吗？支持
