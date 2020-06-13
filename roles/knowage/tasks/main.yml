@@ -1,98 +1,87 @@
-#1 install Knowage by OS_family
-- name: Install this role on {{ansible_os_family}}
-  include: "{{ansible_os_family}}.yml"
-
-#2 configure Knowage
-
-- name: Create knowage User
+#1 pre-installation
+- name: Create User for Knowage
   user:
     name: knowage
-    shell: /usr/sbin/nologin
     home: /data/wwwroot/knowage
-    create_home: no
+    shell: /usr/sbin/nologin
 
-- name: Create knowage directory
+- name: Create /data/wwwroot/knowage
   file:
     path: /data/wwwroot/knowage
     state: directory
     owner: knowage
     group: knowage
-    
-- name: Download knowage
-  get_url:
-    dest: /data/wwwroot/knowage
-    url: "{{rabbitmq_download_url}}"
+
+- name: Ansible check file exists
+  stat:
+    path: "/data/wwwroot/knowage/Knowage-*.zip"
+  register: result
+
+- name: Download Knowage, it have 2G, need 10 minutes
+  unarchive:
+    src: "{{knowage_download_url}}"
+    dest: "/data/wwwroot/knowage"
+    remote_src: yes
+    mode: 0750
+  when: not result.stat.exists
+
+#2 install Knowage by OS_family if need
+- name: Install this role on {{ansible_os_family}}
+  include: "{{ansible_os_family}}.yml"
+
+- name: Install Knowage
+  shell: bash Knowage*.sh
+  args:
+    chdir: /data/wwwroot/knowage
+
+#2 configure Knowage
+- name: Change Directory owner
+  file:
+    path: /data/wwwroot/knowage
+    state: directory
     owner: knowage
     group: knowage
+    recurse: yes
 
-- name: Set knowage config
-  template:
-    src: knowage.conf.jinja2
-    dest: /data/wwwroot/knowage/knowage.conf
-    owner: knowage
-    group: knowage
-
-- name: Setting knowage service
+- name: Setting Knowage Service
   copy:
     src: knowage.service
     dest: /lib/systemd/system/knowage.service
 
-- name: Restart knowage
-  service:
-    name: knowage.service
-    state: restarted
-    enabled: yes
+- name: restart knowage
+  service: name=knowage state=restarted enabled=yes
 
-- name: Create knowage System User
-  user:
-      name: knowage 
-      create_home: no 
-      home: /opt/knowage
-      shell: /usr/sbin/nologin
-
-- name: Download knowage
-  unarchive:
-      src: "{{rabbitmq_download_url}}"
-      dest: /opt/ 
-      group: knowage 
-      remote_src: yes
-      owner: knowage
-      mode: g+w
-
-- name: Create the storage directory for files.
+- name: Delete package
   file:
-      path: /opt/knowage/data
-      state: directory 
-      owner: knowage 
-      group: knowage
-      mode: g+w
-      
-- name: Set database connection /opt/knowage/config/config.json
-  lineinfile:
-    dest: /opt/knowage/config/config.json
-    regexp: '"DataSource":'
-    line: '    "DataSource": "{{rabbitmq_db_user}}:{{rabbitmq_db_password}}@tcp(localhost:3306)/{{rabbitmq_db_name}}?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",'
-    backrefs: yes 
+    path: "/root/{{item}}"
+    state: absent
+  with_items:
+   - "install.sh"
+   - "Knowage-CE-Installer-Unix.sh"
 
-# set soft link, -f enforce the exist links
-# ln -sf src des
+- name: set reverse proxy
+  copy: 
+    src: default
+    dest: /etc/nginx/sites-available
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
+
+#3 set soft link, check version and service state
+
+### ln -sf src des
 - name: set soft link
   shell: |
     ln -sf /opt/knowage  /data/wwwroot
     ln -sf /opt/knowage/config /data/config
 
-# Check version,
-# must use sudo sh -c to solve the no-root permission
+### Check version
 - block:
   - name: Check Knowage Version
     shell: sudo sh -c "rabbitmqctl status | grep 'Knowage version' 1>> /data/logs/install_version.txt"
 
-  - name: Check Erlang Version
-    shell: sudo sh -c 'echo "Erlang $(yum info erlang | grep Version | sed -n 1p)" 1>> /data/logs/install_version.txt'
-    when: ansible_os_family=="RedHat"
-
-# check service state
+### check service state
 - name: Check Knowage Service
   shell: systemctl status knowage | grep Active*
-  register: check_rabbitmq_service
-  notify: check_rabbitmq_service
+  register: check_knowage_service
+  notify: check_knowage_service
