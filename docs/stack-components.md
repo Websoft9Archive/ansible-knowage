@@ -6,8 +6,10 @@ The Knowage deployment package contains a sequence software (referred to as "com
 
 ### Knowage
 
-Knowage installation directory:  */data/knowage*  
+Knowage installation directory:  */data/wwwroot/knowage*  
 Knowage logs directory:  */data/logs/knowage*  
+
+### JAVA
 
 ### Nginx
 
@@ -21,7 +23,7 @@ Nginx rewrite rules directory: */etc/nginx/conf.d/rewrite*
 MySQL installation directory: */usr/local/mysql*  
 MySQL data directory: */data/mysql*  
 MySQL configuration file: */etc/my.cnf*    
-MySQL Web Management URL: *http://Internet IP/9panel*, get credential from [Username and Password](/stack-accounts.md)
+MySQL Web Management URL: *http://Internet IP:9090*, get credential from [Username and Password](/stack-accounts.md)
 
 ## Ports
 
@@ -61,5 +63,5 @@ yum info erlang
 apt show erlang
 
 # Knowage version
-knowagectl status | grep Knowage*
+
 ```

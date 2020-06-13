@@ -8,15 +8,14 @@ These accounts are required for Knowage image installation and configuration
 
 ## Knowage
 
-* Knowage administrator username: `admin`
+* Knowage administrator username: `demo_admin`
 * Knowage administrator password: stored in the file of your server */credentials/password.txt*
-  > If there no password.txt exist, the administrator password is `admin`
+  > If there no password.txt exist, the administrator password is `demo_admin`
 
 ## MySQL
 
 * MySQL administrator username: `root`
-* MySQL administrator password: stored in the file of your server */credentials/password.txt*  
-  ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/common/catdbpassword-websoft9.png)
+* MySQL administrator password: stored in the file of your server */credentials/password.txt*
 
 ## Linux
 
