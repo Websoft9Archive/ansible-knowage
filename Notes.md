@@ -51,47 +51,27 @@ innodb_log_file_size = 500M
 
 ### 数据库密码
 
-如果有数据库
-
-* 数据库安装方式：包管理工具自带 or 自行安装
-* 账号密码：
+* 数据库安装方式：自行安装
+* 账号密码：root
 
 ### 后台账号
 
 如果有后台账号
 
-* 登录地址
-* 账号密码
-* 密码修改方案：最好是有命令行修改密码的方案
+* 登录地址: http://Internet IP:8080/knowage
+* 账号密码: demo_admin/demo_admin
+* 密码修改方案：待研究
 
 ## 路径
 
-* 程序路径：/usr/lib/rabbitmq/lib/rabbitmq_server-*
-* 日志路径：/var/log/rabbitmq  
+* 程序路径：/data/wwwroot/knowage
+* 日志路径：/var/log/knowage
 * 配置文件路径：  
 * 其他...
 
 ## 服务
 
-本项目安装后自动生成：rabbitmq-server 服务
-
-备注：如果开机没有服务，程序无法运行的情况下，需要自行编写服务后存放到项目中
-
-服务的模板如下：
-
-```
-[Unit]
-Description=Redmine
-After=nginx.service
-[Service]
-Environment=RAILS_ENV=production
-Type=simple
-WorkingDirectory=/data/wwwroot/redmine
-ExecStart=/usr/local/bin/puma -b tcp://127.0.0.1:9292 -e production 
-User=redmine
-[Install]
-WantedBy=multi-user.target
-```
+本项目需要自行构建服务，具体参考Ansible项目
 
 ## 环境变量
 
@@ -104,18 +84,14 @@ WantedBy=multi-user.target
 通过如下的命令获取主要组件的版本号: 
 
 ```
-# Check Knowage version
-sudo rabbitmqctl status | grep Knowage*
 
-# Check Erlang version
-ls /usr/lib64/erlang
 ```
 
 ## 常见问题
 
 #### 有没有管理控制台？
 
-*http:// 公网 IP:15672* 即可访问控制台，系统默认存在一个无法通过外网访问的guest/guest账号
+*http:// 公网 IP:8080* 即可访问控制台，系统默认存在一个无法通过外网访问的guest/guest账号
 
 #### 本项目需要开启哪些端口？
 
@@ -131,4 +107,4 @@ ls /usr/lib64/erlang
 
 #### 安装后是否需要创建普通用户？
 
-有，rabbitmq
+有，knowage
