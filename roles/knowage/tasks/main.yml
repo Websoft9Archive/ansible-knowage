@@ -22,7 +22,7 @@
     dest: "/data/wwwroot/knowage"
     remote_src: yes
     mode: 0750
-  when: not result.stat.exists
+  when: not result
 
 #2 install Knowage by OS_family if need
 - name: Install this role on {{ansible_os_family}}
