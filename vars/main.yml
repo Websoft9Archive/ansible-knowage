@@ -3,6 +3,9 @@ jdk_distribution: "jdk"
 
 preend_certbot: True
 
+docker_applications:
+  - phpmyadmin
+
 mysql_root_password: "123456"
 init_db: 
   mysql:
