@@ -13,8 +13,7 @@
     group: knowage
 
 - name: Ansible check file exists
-  stat:
-    path: "/data/wwwroot/knowage/Knowage-*.zip"
+  shell: ls /data/wwwroot/knowage | grep zip
   register: result
 
 - name: Download Knowage, it have 2G, need 10 minutes
