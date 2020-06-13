@@ -23,30 +23,19 @@
 
 ## 安装说明
 
-官方提供了 Manual installation 和 Knowage CE Installer 两种安装方式，其中 Manual installation 文档写得很乱，基本无法参考，因此采用 Knowage CE Installer 安装方式。下面根据操作系统的不同分别介绍：
+官方提供了 Manual installation 和 Knowage CE Installer 两种安装方式，其中 Manual installation 文档写得很乱，基本无法参考，因此采用 Knowage CE Installer 安装方式。
 
-### CentOS
+主要安装步骤如下：
 
-```shell
-# 分别安装erlang源和rabbitmq-server源
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+1. 下载Knowage CE Installer文件
+2. 解压
+3. 运行 `./Knowage-7_0_0-CE-Installer-Unix-20191022.sh -c` 命令
+4. 启动服务
 
-# 安装
-yum install erlang rabbitmq-server -y
-```
+注意事项：
 
-### Ubuntu
-
-```shell
-# 分别安装erlang源和rabbitmq-server源
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.deb.sh | sudo bash
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
-
-# 安装
-sudo apt-get update -y
-apt install erlang rabbitmq-server -y
-```
+* JAVA_HOME 环境变量需存在
+* `./Knowage-*.sh -c`  注意 -c 这个参数
 
 ## 配置
 
