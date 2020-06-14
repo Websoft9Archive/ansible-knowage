@@ -1,56 +1,102 @@
 #!/bin/bash
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> /etc/profile
-echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> /etc/profile
-source /etc/profile
-echo "
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1
-
-
-
-/data/wwwroot/
-
-
-2
-
-root
-{{mysql_password}}
-n
-y
-n
-"| {{ansible_user_dir}}/Knowage-CE-Installer-Unix.sh -c
+(echo "o"
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo "1"
+sleep 1
+echo "1"
+sleep 1
+echo ""
+sleep 1
+echo ""
+sleep 1
+echo "/data/wwwroot/knowage"
+sleep 1
+echo ""
+sleep 5
+#Use an already installed DBMS [1, Enter]
+echo "1"
+sleep 1
+echo "2"
+sleep 1
+echo ""
+sleep 1
+echo "root"
+sleep 1
+echo "123456"
+sleep 60
+echo "y"
+sleep 1
+echo "y"
+sleep 1
+echo "y"
+sleep 1
+)| bash Knowage*.sh -c
