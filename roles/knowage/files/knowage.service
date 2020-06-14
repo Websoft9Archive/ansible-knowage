@@ -3,8 +3,8 @@ Description=Knowage
 
 [Service]
 Type=forking
-ExecStart=/data/wwwroot/knowage/bin/catalina.sh start
-ExecStop=/data/wwwroot/knowage/bin/catalina.sh stop
+ExecStart=/data/wwwroot/knowage/Knowage-Server-CE/bin/catalina.sh start
+ExecStop=/data/wwwroot/knowage/Knowage-Server-CE/bin/catalina.sh stop
 PrivateTmp=true
 User=knowage
 Group=knowage 
