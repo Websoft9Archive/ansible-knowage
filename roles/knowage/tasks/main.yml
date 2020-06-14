@@ -28,8 +28,14 @@
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
 
+- name: Upload interaction Install script of Knowage
+  template:
+    src: install.sh
+    dest: '/data/wwwroot/knowage'
+    mode: 0750
+    
 - name: Install Knowage by expect
-  shell: bash Knowage*.sh -c
+  shell: bash install.sh
   args:
     chdir: /data/wwwroot/knowage
 
