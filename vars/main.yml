@@ -1,6 +1,15 @@
 jdk_version: "8" 
 jdk_distribution: "jdk"
 
+mysql_databases:
+ - name: knowage
+   encoding: utf8
+ 
+mysql_users:
+ - name: knowage
+   host: localhost
+   priv: 'knowage.*:ALL'
+
 preend_certbot: True
 
 docker_applications:
