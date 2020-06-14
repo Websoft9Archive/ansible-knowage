@@ -13,7 +13,7 @@
     group: knowage
 
 - name: Ansible check file exists
-  shell: ls /data/wwwroot/knowage | grep zip
+  shell: ls /data/wwwroot/knowage | grep Knowage-*.sh
   register: result
 
 - name: Download Knowage, it have 2G, need 10 minutes
@@ -40,7 +40,7 @@
     chdir: /data/wwwroot/knowage
 
 #2 configure Knowage
-- name: Change Directory owner
+- name: Change Directory owner again
   file:
     path: /data/wwwroot/knowage
     state: directory
@@ -56,13 +56,8 @@
 - name: restart knowage
   service: name=knowage state=restarted enabled=yes
 
-- name: Delete package
-  file:
-    path: "/root/{{item}}"
-    state: absent
-  with_items:
-   - "install.sh"
-   - "Knowage-CE-Installer-Unix.sh"
+- name: Delete Knowage-*.sh
+  shell: rm -rf /data/wwwroot/knowage/Knowage-*.sh
 
 - name: set reverse proxy
   copy: 
@@ -74,16 +69,10 @@
 
 #3 set soft link, check version and service state
 
-### ln -sf src des
-- name: set soft link
-  shell: |
-    ln -sf /opt/knowage  /data/wwwroot
-    ln -sf /opt/knowage/config /data/config
-
 ### Check version
 - block:
   - name: Check Knowage Version
-    shell: sudo sh -c "rabbitmqctl status | grep 'Knowage version' 1>> /data/logs/install_version.txt"
+    shell: sudo sh -c " systemctl status knowage | grep Active* 1>> /data/logs/install_version.txt"
 
 ### check service state
 - name: Check Knowage Service
