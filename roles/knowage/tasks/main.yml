@@ -28,8 +28,8 @@
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
 
-- name: Install Knowage
-  shell: bash Knowage*.sh
+- name: Install Knowage by expect
+  shell: bash Knowage*.sh -c
   args:
     chdir: /data/wwwroot/knowage
 
