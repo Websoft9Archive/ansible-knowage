@@ -89,9 +89,10 @@ echo "2"
 sleep 1
 echo ""
 sleep 1
+#need root?
 echo "root"
 sleep 1
-echo "123456"
+echo "{{knowage_mysql_password}}"
 sleep 60
 echo "y"
 sleep 1
