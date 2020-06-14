@@ -1,2 +1,6 @@
 # 官方URL，定期维护
 knowage_download_url: "http://release.ow2.org/knowage/7.1.5/Installers/Knowage-7_1_5-CE-Installer-Unix-20200324.zip"
+
+# mysql connection need
+knowage_mysql_username: "knowage"
+knowage_mysql_password: "123457"
