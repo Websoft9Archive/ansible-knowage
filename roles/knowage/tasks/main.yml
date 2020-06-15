@@ -13,7 +13,7 @@
     group: knowage
 
 - name: Ansible check file exists
-  shell: if [ ! $(ls /data/wwwroot/knowage | grep grep Knowage*.s*) ]; then echo "need_download";else echo "downloaded";fi
+  shell: if [ ! $(ls /data/wwwroot/knowage | grep Knowage*.s*) ]; then echo "need_download";else echo "downloaded";fi
   register: result
 
 - name: Download Knowage, it have 2G, need 10 minutes
