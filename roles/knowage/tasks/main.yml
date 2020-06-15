@@ -14,6 +14,7 @@
 
 - name: Ansible check file exists
   shell: ls /data/wwwroot/knowage | grep Knowage-*.sh
+  ignore_errors: True
   register: result
 
 - name: Download Knowage, it have 2G, need 10 minutes
@@ -22,7 +23,7 @@
     dest: "/data/wwwroot/knowage"
     remote_src: yes
     mode: 0750
-  when: not result
+  when: result | failed
 
 #2 install Knowage by OS_family if need
 - name: Install this role on {{ansible_os_family}}
