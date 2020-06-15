@@ -13,8 +13,7 @@
     group: knowage
 
 - name: Ansible check file exists
-  shell: ls /data/wwwroot/knowage | grep Knowage-*.sh
-  ignore_errors: True
+  shell: if [ ! $(ls /data/wwwroot/knowage | grep Knowage-*.sh) ]; then echo "need_download";else echo "download";fi
   register: result
 
 - name: Download Knowage, it have 2G, need 10 minutes
@@ -23,7 +22,7 @@
     dest: "/data/wwwroot/knowage"
     remote_src: yes
     mode: 0750
-  when: result | failed
+  when: result.stdout == "need_download"
 
 #2 install Knowage by OS_family if need
 - name: Install this role on {{ansible_os_family}}
