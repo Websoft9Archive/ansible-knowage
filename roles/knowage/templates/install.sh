@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export JAVA_HOME=/usr/lib/jvm/java
 (echo "o"
 sleep 1
 echo ""
