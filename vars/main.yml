@@ -1,6 +1,8 @@
 jdk_version: "8" 
 jdk_distribution: "jdk"
 
+mysql_root_password: "123456"
+
 mysql_databases:
  - name: knowage
    encoding: utf8
@@ -14,8 +16,8 @@ preend_certbot: True
 
 docker_applications:
   - phpmyadmin
+  
 
-mysql_root_password: "123456"
 init_db: 
   mysql:
     admin: root
