@@ -4,4 +4,4 @@ knowage_download_url: "http://release.ow2.org/knowage/7.1.5/Installers/Knowage-7
 # mysql connection need
 knowage_mysql_db: "knowage"
 knowage_mysql_username: "knowage"
-knowage_mysql_password: "123457"
+knowage_mysql_password: "123456"
