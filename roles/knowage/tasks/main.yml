@@ -62,7 +62,7 @@
 - name: set reverse proxy
   copy: 
     src: default
-    dest: /etc/nginx/sites-available
+    dest: /etc/nginx/conf.d/default.conf
 
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
