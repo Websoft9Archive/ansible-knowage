@@ -17,7 +17,13 @@
 
 ## 组件
 
-包含的核心组件为：MySQL，Docker, phpMyAdmin on Docker, Nginx, OpenJDK, Knowage
+包含的核心组件为：
+
+- Nginx
+- JAVA
+- MYSQL
+- Knowage
+- Apache Tomcat
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
