@@ -1,5 +1,6 @@
 [Unit]
 Description=Knowage
+After=mysql.service
 
 [Service]
 Type=forking
