@@ -25,6 +25,6 @@ init_application:
     username: biadmin
     password: "biadmin"
     service_before: knowage.service
-    config_commands:
+    commands:
       - sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
       - sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
