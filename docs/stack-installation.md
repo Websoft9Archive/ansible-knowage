@@ -21,7 +21,7 @@ If you have completed the Knowage deployment on Cloud Platform, the following st
 4. Go 【Server Settings】>【Configuration Management】 to configure Knowage
   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-confmanagement-websoft9.png)
 
-> More useful Knowage guide, please refer to [Knowage Documentation](https://knowage.readthedocs.io/en/latest/index.html)
+> More useful Knowage guide, please refer to [Knowage Documentation](https://knowage-suite.readthedocs.io/)
 
 ## Q&A
 

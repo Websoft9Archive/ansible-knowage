@@ -19,7 +19,7 @@
 3. 登录后通过：【Users】>【Admin】>【Permissions】>【Update this user】设置新密码  
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-pw-websoft9.png)
 
-> 需要了解更多 Knowage 的使用，请参考官方文档：[Knowage Documentation](https://www.knowage.com/documentation.html)
+> 需要了解更多 Knowage 的使用，请参考官方文档：[Knowage Documentation](https://knowage-suite.readthedocs.io/)
 
 ## 常见问题
 

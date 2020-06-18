@@ -5,13 +5,13 @@ These commands you must know when you using the Knowage of Websoft9
 ### Knowage
 
 ```shell
-sudo systemctl start knowage-server
-sudo systemctl stop knowage-server
-sudo systemctl restart knowage-server
-sudo systemctl status knowage-server
+sudo systemctl start knowage
+sudo systemctl stop knowage
+sudo systemctl restart knowage
+sudo systemctl status knowage
 
 # you can use this debug mode if Knowage service can't run
-knowage-server console
+knowage console
 ```
 
 ### MySQL

@@ -30,7 +30,7 @@ module.exports = [
         children: [
           '/admin-services',
           '/admin-mysql',
-          ['https://support.websoft9.com/docs/linux/lang-erlang.html','Erlang'],
+          ['https://support.websoft9.com/docs/linux/lang-java.html','Java'],
           ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
         ]
       },
