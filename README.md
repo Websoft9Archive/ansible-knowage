@@ -29,7 +29,9 @@
 
 ## 本项目安装的是 Knowage 最新版吗？
 
-本项目通过下载 Knowage 源码进行安装，下载链接需要维护：先到 [knowage 下载页面](https://www.knowage-suite.com/site/knowage-download/)获取最新版源码下载链接，再修改 [main.yml](/roles/knowage/defaults/main.yml) 中的 ```knowage_download_url``` 变量值即可安装最新版 Knowage。  
+本项目通过下载 Knowage 源码进行安装，故下载链接需要维护。
+
+维护方法：先到 [knowage 下载中心](https://www.knowage-suite.com/site/knowage-download/)获取最新版源码下载链接，再修改 [main.yml](/roles/knowage/defaults/main.yml) 中的 ```knowage_download_url``` 变量值即可安装最新版 Knowage。  
 
 我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
 
