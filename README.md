@@ -29,13 +29,9 @@
 
 ## 本项目安装的是 Knowage 最新版吗？
 
-本项目通过下载 Knowage 源码进行安装，下载链接存储在：[role/knowage/default/main.yml](/roles/knowage/defaults/main.yml)。我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
+本项目通过下载 Knowage 源码进行安装，下载链接需要维护：先到 [knowage 下载页面](https://www.knowage-suite.com/site/knowage-download/)获取最新版源码下载链接，再修改 [main.yml](/roles/knowage/defaults/main.yml) 中的 ```knowage_download_url``` 变量值即可安装最新版 Knowage。  
 
-```
-knowage_download_url: "https://release.ow2.org/knowage/6.4.1/Installers/Knowage-6_4_1-CE-Installer-Unix-20190605.zip "
-```
-
-如果你发现不是最新版本，请到 [knowage 下载页面](https://www.knowage-suite.com/site/knowage-download/)获取最新版源码下载链接，再修改 [main.yml](/roles/knowage/defaults/main.yml) 中的 ```knowage_download_url``` 变量值即可安装最新版 Knowage。  
+我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
 
 ## 安装指南
 
