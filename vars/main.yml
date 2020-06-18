@@ -5,15 +5,6 @@ mysql_version: "5.7"
 mysql_root_password: "123456"
 mysql_remote: True
 
-mysql_databases:
- - name: knowage
-   encoding: utf8
- 
-mysql_users:
- - name: knowage
-   host: localhost
-   priv: 'knowage.*:ALL'
-
 preend_certbot: True
 
 docker_applications:
