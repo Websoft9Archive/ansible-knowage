@@ -23,5 +23,6 @@ init_application:
     username: biadmin
     password: "biadmin"
     service_before: knowage.service
-    config_paths: 
-      - /data/wwwroot/wordpress/wp-config.php
+    config_commands:
+      - /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/
+      - /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
