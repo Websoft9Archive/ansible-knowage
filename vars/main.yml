@@ -23,3 +23,6 @@ init_db:
   mysql:
     admin: root
     password: "123456"
+    service_after: knowage.service
+    config_paths:
+      -/data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml
