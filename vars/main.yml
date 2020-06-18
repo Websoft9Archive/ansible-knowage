@@ -23,6 +23,14 @@ init_db:
   mysql:
     admin: root
     password: "123456"
-    service_after: knowage.service
+    service_before: knowage.service
     config_paths:
       -/data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml
+      
+init_application:
+  knowage:
+    username: biadmin
+    password: "biadmin"
+    service_before: knowage.service
+    config_paths: 
+      - /data/wwwroot/wordpress/wp-config.php
