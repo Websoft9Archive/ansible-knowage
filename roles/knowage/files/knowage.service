@@ -4,11 +4,12 @@ After=mysql.service
 
 [Service]
 Type=forking
+Environment="JAVA_HOME=/usr/lib/jvm/java"
 ExecStart=/data/wwwroot/knowage/Knowage-Server-CE/bin/catalina.sh start
 ExecStop=/data/wwwroot/knowage/Knowage-Server-CE/bin/catalina.sh stop
 PrivateTmp=true
 User=knowage
-Group=knowage 
+Group=knowage
 
 [Install]
 WantedBy=multi-user.target
