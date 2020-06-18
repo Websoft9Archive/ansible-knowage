@@ -1,6 +1,8 @@
 jdk_version: "8" 
 jdk_distribution: "jdk"
 
+nginx_listen_port: "8080/knowage"
+
 mysql_version: "5.7"
 mysql_root_password: "123456"
 mysql_remote: True
