@@ -1,4 +1,4 @@
-#1 pre-installation
+#1 pre-installation     
 - name: Create User for Knowage
   user:
     name: knowage
