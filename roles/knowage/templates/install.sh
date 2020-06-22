@@ -48,7 +48,6 @@ echo ""
 #need root?
 echo "root"
 echo "{{knowage_mysql_password}}"
-sleep 60
 echo "y"
 echo "y"
 echo "y"
