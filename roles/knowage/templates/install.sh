@@ -41,11 +41,9 @@ echo ""
 echo ""
 echo "/data/wwwroot/knowage"
 echo ""
-#Use an already installed DBMS [1, Enter]
 echo "1"
 echo "2"
 echo ""
-#need root?
 echo "root"
 echo "{{knowage_mysql_password}}"
 echo "y"
