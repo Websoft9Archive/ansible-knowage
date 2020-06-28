@@ -24,6 +24,8 @@ init_db:
     service_before: "knowage.service"
     config_paths:
       - /data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml
+    commands:
+      - mysql -h localhost -P 3306  -uroot -p$new_password knowage_ce -e "DELETE FROM SBI_USER WHERE SBI_USER.ID = 1"
       
 init_application:
   knowage:
@@ -31,5 +33,6 @@ init_application:
     password: "biadmin"
     service_before: "knowage.service"
     commands:
+      - rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
       - sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
       - sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
