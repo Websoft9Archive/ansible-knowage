@@ -25,7 +25,7 @@ init_db:
     config_paths:
       - /data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml
       
-init_application2:
+init_application:
   knowage:
     username: biadmin
     password: "biadmin"
