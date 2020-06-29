@@ -16,9 +16,8 @@ module.exports = [
     title: '实践指南',
     collapsable: false,
     children: [
-      '/zh/solution-smtp',
+      '/zh/solution-datasource',
       '/zh/solution-https',
-      '/zh/solution-cli',
       '/zh/solution-backup',
       '/zh/solution-upgrade',
       '/zh/solution-more',
@@ -31,6 +30,7 @@ module.exports = [
     children: [
       '/zh/admin-services',
       '/zh/admin-mysql',
+      ['https://support.websoft9.com/docs/linux/zh/webs-tomcat.html','Tomcat'],
       ['https://support.websoft9.com/docs/linux/zh/lang-java.html','Java'],
       ['https://support.websoft9.com/docs/linux/zh/admin-practices.html','Linux'],
     ]

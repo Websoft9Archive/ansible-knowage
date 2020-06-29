@@ -13,6 +13,8 @@ If you have completed the Knowage deployment on Cloud Platform, the following st
 1. Using local Chrome or Firefox to visit the URL *http://DNS:15672* or *http://Internet IP:15672*, you will enter login page of Knowage
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-login-websoft9.png)
 
+   > You can visit Knowage by the URL: *http://Internet IP:8080/knowage* also
+
 2. Log in to Knowage web console([Don't have password?](/stack-accounts.md#knowage)), go to dashboard of Knowage 
 
 3. Go to  Profile Management->Users Management to change the password of Administrator

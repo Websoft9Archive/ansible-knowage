@@ -22,6 +22,6 @@ yum update -y --skip-broken
 > 本部署包已预配置一个用于自动更新的计划任务。如果希望去掉自动更新，请删除对应的Cron
 
 
-## Knowage升级
+## Knowage 升级
 
-详情参考官方升级文档：[Upgrading Knowage](https://www.knowage.com/upgrade.html)
+详情参考官方升级文档：[How to upgrade to the latest version](https://knowage-suite.readthedocs.io/en/7.1/installation-guide/upgrade.html#)

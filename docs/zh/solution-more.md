@@ -2,10 +2,6 @@
 
 下面每一个方案，都经过实践证明行之有效，希望能够对你有帮助
 
-## 配置
-
-参考官方方案：https://www.knowage.com/configure.html
-
 ## 域名绑定
 
 当服务器上只有一个网站时，不做域名绑定也可以访问网站。但从安全和维护考量，**域名绑定**不可省却。
@@ -20,7 +16,6 @@
    {
    listen 80;
    server_name www.example.com;  # 此处修改为你的域名
-   index index.html index.htm index.php;
    ...
    }
    ```
@@ -36,8 +31,8 @@
 以管理员用户 biadmin 为例，介绍如何修改密码
 
 1. 登录 Knowage 后台
-2. 依次打开：【Users】>【Admin】>【Permissions】>【Update this user】设置新密码  
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-pw-websoft9.png)
+2. 依次打开：【Profile Management】>【Users Management】 修改密码
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-changepw-websoft9.png)
 
 
 ### 重置密码
@@ -48,7 +43,7 @@
    ```
    /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
    /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-   ···
+   ```
 
 2. 使用 phpMyAdmin 登录数据库，找到`knowage_ce`库下的 `SBI_USER`表，删除其中的【biadmin】整行
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-deletedbbiadmin-websoft9.png)
@@ -57,4 +52,3 @@
    ```
    systemctl restart knowage
    ```
-

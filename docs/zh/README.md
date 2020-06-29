@@ -6,9 +6,9 @@ home: false
 
 本文档由 [Websoft9](https://www.websoft9.com/) 公司提供，用于指导用户学习 Knowage 的安装部署与基本运维技术，包括：Knowage部署、初始化安装、环境配置、HTTPS、SMTP、备份升级和连接云服务器操作等基本操作。
 
-[Knowage](https://www.knowage.com) 流行的开源消息队列系统，用erlang语言开，是AMQP（高级消息队列协议）的标准实现。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。
+[Knowage](https://www.knowage.com) 源自SpagoBI，是使用Java语言写的开放源码的商业智能分析工具,是一套适合现代商业分析的开源工具套装。Knowage提供了高级的自助服务功能，为最终用户提供了自主权，可以构建自己的分析、探索和组织自己的数据空间。
 
-![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-gui-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-gui-websoft9.png)
 
 ---
 

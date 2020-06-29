@@ -1,10 +1,10 @@
 # SSL/HTTPS
 
-网站完成域名绑定且可以通过HTTP访问之后，方可设置HTTPS。
+网站完成域名绑定且可以通过 HTTP 访问之后，方可设置 HTTPS。
 
-Knowage 预装包，已安装Web服务器 SSL 模块和公共免费证书方案 [Let's Encrypt](https://letsencrypt.org/) ，并完成预配置。
+Knowage 预装包，已安装 Web 服务器 SSL 模块和公共免费证书方案 [Let's Encrypt](https://letsencrypt.org/) ，并完成预配置。
 
-> 除了虚拟主机配置文件之外，HTTPS设置无需修改Nginx任何文件
+> 除了虚拟主机配置文件之外，HTTPS设置无需修改 Nginx 任何文件
 
 ## 快速参考
 
@@ -23,6 +23,7 @@ sudo certbot
    listen 443 ssl; 
    ssl_certificate /data/cert/xxx.crt;
    ssl_certificate_key /data/cert/xxx.key;
+   ssl_trusted_certificate /data/cert/chain.pem;
    ssl_session_timeout 5m;
    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;

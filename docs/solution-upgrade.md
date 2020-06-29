@@ -26,4 +26,4 @@ yum update -y --skip-broken
 
 ## Knowage Upgrade
 
-Refer to the official docs: [Upgrading Knowage](https://www.knowage.com/upgrade.html)
+Refer to the official docs: [How to upgrade to the latest version](https://knowage-suite.readthedocs.io/en/7.1/installation-guide/upgrade.html#)

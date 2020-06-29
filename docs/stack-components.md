@@ -6,10 +6,21 @@ The Knowage deployment package contains a sequence software (referred to as "com
 
 ### Knowage
 
-Knowage installation directory:  */data/wwwroot/knowage*  
-Knowage logs directory:  */data/logs/knowage*  
+Knowage installation directory: */data/knowage*  
+Knowage logs directory: */data/wwwroot/knowage/Knowage-Server-CE/logs*  
+Knowage configuration directory: */data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config*
 
-### JAVA
+### Java
+
+Java Edition：*OpenJDK*  
+JVM Directory： */usr/lib/jvm*  
+
+### Tomcat
+
+Knowage CE Installer provides Apache Tomcat 8 out of the box. Don’t worry about pre-installing any application server.  
+
+Tomcat configuration file: */data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml*  
+Tomcat bin: */data/wwwroot/knowage/Knowage-Server-CE/bin*
 
 ### Nginx
 
@@ -24,6 +35,15 @@ MySQL installation directory: */usr/local/mysql*
 MySQL data directory: */data/mysql*  
 MySQL configuration file: */etc/my.cnf*    
 MySQL Web Management URL: *http://Internet IP:9090*, get credential from [Username and Password](/stack-accounts.md)
+
+### phpMyAdmin on Docker
+
+We used Docker to install phpMyAdmin for Knowage
+
+### Docker
+
+Docker root directory: */var/lib/docker*  
+Docker image directory: */var/lib/docker/image*   
 
 ## Ports
 
@@ -58,10 +78,6 @@ java -v
 # Docker Version
 docker -v
 
-# erlang  Version
-yum info erlang
-apt show erlang
-
-# Knowage version
-
+# tomcat  Version
+/data/wwwroot/knowage/Knowage-Server-CE/bin/version.sh
 ```

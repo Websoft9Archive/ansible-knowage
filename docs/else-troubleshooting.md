@@ -25,9 +25,3 @@ df -lh
 # view memory rate
 free -lh
 ```
-
-#### Error in Chrome when modify password?
-
-This error is not attribute to Knowage server, once you have upgraded you local Chrome, it solved
-
-![chrome error of Knowage](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-chromeerror-websoft9.png)

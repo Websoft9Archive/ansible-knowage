@@ -24,10 +24,3 @@ free -lh
 systemctl status knowage
 journalctl -u knowage
 ```
-
-#### 在Chrome下修改密码后报错？
-
-这个并不是服务器端的问题，只要更新浏览器即可。
-
-![chrome error of Knowage](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-chromeerror-websoft9.png)
-

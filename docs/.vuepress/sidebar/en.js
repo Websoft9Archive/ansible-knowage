@@ -15,9 +15,8 @@ module.exports = [
         title: 'Best Practices',
         collapsable: false,
         children: [
-          '/solution-smtp',
+          '/solution-datasource',
           '/solution-https',
-          '/solution-cli',
           '/solution-backup',
           '/solution-upgrade',
           '/solution-more',
@@ -30,6 +29,7 @@ module.exports = [
         children: [
           '/admin-services',
           '/admin-mysql',
+          ['https://support.websoft9.com/docs/linux/webs-tomcat.html','Tomcat'],
           ['https://support.websoft9.com/docs/linux/lang-java.html','Java'],
           ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
         ]

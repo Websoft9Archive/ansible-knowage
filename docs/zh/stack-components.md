@@ -11,7 +11,20 @@ Knowage 预装包包含 Knowage 运行所需一序列支撑软件（简称为“
 ### Knowage
 
 Knowage 安装目录： */data/knowage*  
-Knowage 日志目录： */data/logs/knowage*  
+Knowage 日志目录： */data/wwwroot/knowage/Knowage-Server-CE/logs*  
+Knowage 配置目录： */data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config*
+
+### Tomcat
+
+Knowage CE Installer 内置集成式的 Tomcat7  
+
+Tomcat配置文件：*/data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml*  
+Tomcat工具：*/data/wwwroot/knowage/Knowage-Server-CE/bin*
+
+### Java
+
+Java Edition：*OpenJDK*  
+JVM Directory： */usr/lib/jvm*  
 
 ### Nginx
 
@@ -25,7 +38,16 @@ Nginx 伪静态规则目录： */etc/nginx/conf.d/rewrite*
 MySQL 安装路径: */usr/local/mysql*  
 MySQL 数据文件 */data/mysql*  
 MySQL 配置文件: */etc/my.cnf*    
-MySQL 可视化管理地址: *http://服务器公网IP/phpmyadmin*，用户名和密码请见 [账号密码](/zh/stack-accounts.md) 章节。
+MySQL 可视化管理地址: *http://服务器公网IP:9090*，用户名和密码请见 [账号密码](/zh/stack-accounts.md) 章节。
+
+### phpMyAdmin on Docker
+
+本部署方案中的 phpMyAdmin 采用 Docker 部署。
+
+### Docker
+
+Docker 根目录: */var/lib/docker*  
+Docker 镜像目录: */var/lib/docker/image*   
 
 ## 端口号
 
@@ -35,9 +57,9 @@ MySQL 可视化管理地址: *http://服务器公网IP/phpmyadmin*，用户名�
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| HTTP | 15672 | 通过 HTTP 访问 Knowage 控制台 | 可选 |
-| TCP | 5672 | epmd | 可选 |
-| TCP | 55672 | Erlang distribution | 可选 |
+| TCP | 80 | 通过 HTTP 访问 Knowage 控制台 | 可选 |
+| TCP | 8080 | 通过 HTTP 访问 Tomcat 控制台 | 可选 |
+| TCP | 9090 | 通过 HTTP 访问 phpMyAdmin 控制台 | 可选 |
 
 ## 版本号
 
@@ -59,10 +81,6 @@ java -v
 # Docker Version
 docker -v
 
-# erlang  Version
-yum info erlang
-apt show erlang
-
-# Knowage version
-knowagectl status | grep Knowage*
+# tomcat  Version
+/data/wwwroot/knowage/Knowage-Server-CE/bin/version.sh
 ```

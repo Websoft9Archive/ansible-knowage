@@ -9,9 +9,15 @@ sudo systemctl start knowage
 sudo systemctl stop knowage
 sudo systemctl restart knowage
 sudo systemctl status knowage
+```
 
-# you can use this debug mode if Knowage service can't run
-knowage console
+### Nginx
+
+```shell
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl restart nginx
+sudo systemctl status nginx
 ```
 
 ### MySQL
@@ -23,11 +29,11 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 ```
 
-### Redis
+### Docker
 
 ```shell
-systemctl start redis
-systemctl stop redis
-systemctl restart redis
-systemctl status redis
+systemctl start docker
+systemctl stop docker
+systemctl restart docker
+systemctl status docker
 ```
