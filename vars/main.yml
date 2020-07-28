@@ -12,8 +12,6 @@ mysql_configuration_extras:
   - name: innodb_log_file_size
     value: 500M
 
-preend_certbot: True
-
 docker_applications:
   - phpmyadmin
   
