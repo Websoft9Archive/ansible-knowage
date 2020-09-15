@@ -33,6 +33,6 @@ init_application:
     password: "biadmin"
     service_before: "knowage.service"
     commands:
-      - rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
-      - sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-      - sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+      - sudo rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
+      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
+      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
