@@ -1,6 +1,6 @@
-# 官方URL，定期维护 7.2
-knowage_download_url: "http://release.ow2.org/knowage/7.2.0/Installers/Knowage-7_2_0-CE-Installer-Unix-20200730.zip"
-
+# 官方URL，定期维护 7.4-20210330
+#knowage_download_url: "http://release.ow2.org/knowage/7.2.0/Installers/Knowage-7_2_0-CE-Installer-Unix-20200730.zip"
+knowage_download_url: "https://release.ow2.org/knowage/7.4.0/Installers/Knowage-7_4_0-CE-Installer-Unix-20210318.zip"
 # Knowage need root user for mysql connection
 knowage_mysql_username: "root"
 knowage_mysql_password: "123456"
