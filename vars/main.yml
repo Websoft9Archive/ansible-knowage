@@ -24,8 +24,8 @@ init_docker:
       - /data/wwwroot/knowage/knowage-server/cache/
     commands:
       - sudo docker exec -i knowage-server bash << EOF
-sed -i 's/password="123456"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-EOF
-      - sudo docker exec -i knowage-server bash << EOF
-sed -i 's/password="biadmin"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-EOF
+        sed -i 's/password="123456"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
+        EOF
+      - sudo docker exec -i knowage-server bash << EOF 
+        sed -i 's/password="biadmin"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+        EOF
