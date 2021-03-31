@@ -32,7 +32,7 @@
   - {src: /data/wwwroot/knowage/knowage-server/apache-tomcat/,dest: /data/tomcat}
 
 # check service and version
-- name: Check redmine service 
+- name: Check knowage service 
   shell: echo "knowage" `docker inspect knowage |grep -i status`
   register: check_knowage_service
   notify: check_knowage_service
