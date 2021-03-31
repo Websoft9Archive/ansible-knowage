@@ -23,11 +23,9 @@ init_docker:
       - /data/wwwroot/knowage/knowage-server/db/
       - /data/wwwroot/knowage/knowage-server/cache/
     commands:
-      - sleep 10
-      - sudo rm -rf /data/tomcat/work/Catalina
-      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-      - sudo sed -i 's/password="bidev"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-      - sudo sed -i 's/password="bidev"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-      - sudo sed -i 's/password="biuser"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-      - sudo sed -i 's/password="biuser"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+      - sudo docker exec -i knowage-server bash << EOF
+sed -i 's/password="123456"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
+EOF
+      - sudo docker exec -i knowage-server bash << EOF
+sed -i 's/password="biadmin"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+EOF
