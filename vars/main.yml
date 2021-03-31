@@ -1,38 +1,33 @@
-jdk_version: "8" 
-jdk_distribution: "jdk"
-
-common_os_support: ["CentOS", "Ubuntu", "Amazon"]
+common_install_docker: True
+docker_install: False
+mysql_install_server: False
 
 nginx_reverse_proxy_port: "8080/knowage"
-
-mysql_version: "5.7"
-mysql_root_password: "123456"
-mysql_remote: True
-mysql_configuration_extras:
-  - name: innodb_buffer_pool_size
-    value: 2G
-  - name: innodb_log_file_size
-    value: 500M
 
 docker_applications:
   - phpmyadmin
   
-init_db: 
-  mysql:
-    admin: root
-    password: "123456"
-    service_before: "knowage.service"
-    config_paths:
-      - /data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml
-    commands:
-      - mysql -h localhost -P 3306  -uroot -p$new_password knowage_ce -e "DELETE FROM SBI_USER WHERE SBI_USER.ID = 1"
-      
-init_application:
-  knowage:
+init_docker:
+  onlyoffice:
+    db: mariadb
+    db_name: knowage
+    db_username: knowagedb
+    db_password: "123456"
     username: biadmin
     password: "biadmin"
-    service_before: "knowage.service"
+    service_after: "docker.service"
+    compose_path: "/data/wwwroot/onlyoffice/docker-compose.yml"
+    compose_commands:
+      - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/knowage-server/.env
+    volumes: 
+      - /data/wwwroot/knowage/knowage-server/db/
+      - /data/wwwroot/knowage/knowage-server/cache/
     commands:
-      - sudo rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
-      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+      - sleep 10
+      - sudo rm -rf /data/tomcat/work/Catalina
+      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
+      - sudo sed -i 's/password="biadmin"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+      - sudo sed -i 's/password="bidev"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
+      - sudo sed -i 's/password="bidev"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
+      - sudo sed -i 's/password="biuser"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
+      - sudo sed -i 's/password="biuser"/password="'$new_password'"/' /data/tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml

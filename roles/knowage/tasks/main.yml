@@ -1,85 +1,46 @@
-#1 pre-installation     
-- name: Create User for Knowage
-  user:
-    name: knowage
-    home: /data/wwwroot/knowage
-    shell: /usr/sbin/nologin
-
-- name: Create /data/wwwroot/knowage
-  file:
-    path: /data/wwwroot/knowage
+- name: Create dir for knowage
+  file: 
     state: directory
-    owner: knowage
-    group: knowage
-
-- name: Ansible check file exists
-  shell: if [ ! $(ls /data/wwwroot/knowage | grep Knowage.*.sh) ]; then echo "need_download";else echo "downloaded";fi
-  register: result
-
-- name: Download Knowage, it have 2G, need 10 minutes
-  unarchive:
-    src: "{{knowage_download_url}}"
-    dest: "/data/wwwroot/knowage"
-    remote_src: yes
-    mode: 0750
-  when: result.stdout == "need_download"
-
-#2 install Knowage by OS_family if need
-- name: Install this role on {{ansible_os_family}}
-  include: "{{ansible_os_family}}.yml"
-
-- name: Upload interaction Install script of Knowage
-  template:
-    src: install.sh
-    dest: '/data/wwwroot/knowage'
-    mode: 0750
+    path: "{{item}}"
+  loop: 
+    - /data/wwwroot/knowage
+    - /data/db/mariadb
+    - /data/tomcat
     
-- name: Install Knowage by expect
-  shell: bash install.sh
+- name: Clone knowage in Websoft9 
+  git:
+    repo: "{{knowage_git_url}}"
+    dest: "/data/wwwroot/knowage"
+    version: dev
+
+- name: Run docker-compose 
+  shell: | 
+    docker-compose up -d
+    sleep 30
   args:
-    chdir: /data/wwwroot/knowage
+    chdir: /data/wwwroot/knowage/knowage-server
 
-#2 configure Knowage
-- name: Change Directory owner again
+- name: Set soft link for knowage
   file:
-    path: /data/wwwroot/knowage
-    state: directory
-    owner: knowage
-    group: knowage
-    recurse: yes
+    src: '{{item.src}}'
+    dest: '{{item.dest}}'
+    state: link
+    force: yes
+  with_items:
+  - {src: /data/wwwroot/knowage/knowage-server/db/,dest: /data/db/mariadb/db}
+  - {src: /data/wwwroot/knowage/knowage-server/cache/,dest: /data/db/mariadb/db/cache}
+  - {src: /data/wwwroot/knowage/knowage-server/apache-tomcat/,dest: /data/tomcat}
 
-- name: Setting Knowage Service
-  copy:
-    src: knowage.service
-    dest: /lib/systemd/system/knowage.service
-
-- name: restart knowage
-  service: name=knowage state=restarted enabled=yes
-
-# knowage nginx rewrite setting and restart nginx
-- name: knowage nginx rewrite setting
-  lineinfile:
-    path: /etc/nginx/conf.d/default.conf
-    regexp: '^.*proxy_pass.*$'
-    line: 'rewrite ^ $scheme://$host:8080/knowage;'
-    state: present
-    backrefs: yes
-
-- name: restarted nginx
-  shell: systemctl restart nginx
-
-#3 set soft link, check version and service state
-
-### Check version
-- block:
-  - name: Check Knowage Version
-    shell: sudo sh -c " ls /data/wwwroot/knowage | grep Knowage.*.sh 1>> /data/logs/install_version.txt"
-
-- name: Set soft link
-  shell: ln -sf /data/wwwroot/knowage/Knowage-Server-CE/logs /data/config/knowage
-
-### check service state
-- name: Check Knowage Service
-  shell: systemctl status knowage | grep Active*
+# check service and version
+- name: Check redmine service 
+  shell: echo "knowage" `docker inspect knowage |grep -i status`
   register: check_knowage_service
   notify: check_knowage_service
+    
+- name: Check knowage version
+  shell: >
+    sudo echo "knowage version:" $(docker images |grep knowagelabs |awk '{print $2}' |head -1 |cut -d- -f1) |sudo tee -a /data/logs/install_version.txt  
+
+- name: Check mariadb version
+  shell: >
+    sudo echo "mariadb version:" $(docker images |grep mariadb |awk '{print $2}') |sudo tee -a /data/logs/install_version.txt  
