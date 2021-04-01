@@ -18,7 +18,7 @@ init_docker:
     service_after: "docker.service"
     compose_path: "/data/wwwroot/knowage/knowage-server/docker-compose.yml"
     compose_commands:
-      - sudo sleep 20
+      - sudo docker-compose -f /data/wwwroot/knowage/knowage-server/docker-compose.yml down -v
       - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/knowage-server/.env 
     volumes:
       - /data/wwwroot/knowage/knowage-server/db/
