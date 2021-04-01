@@ -22,7 +22,7 @@ init_docker:
     volumes:
       - /data/wwwroot/knowage/knowage-server/db/
       - /data/wwwroot/knowage/knowage-server/cache/
-      # - /data/wwwroot/knowage/knowage-server/knowage-resources
+      - /var/lib/docker/volumes/knowage-server_knowage-resources/
     commands:
       - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml'
       - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml'
