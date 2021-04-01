@@ -6,24 +6,25 @@ nginx_reverse_proxy_port: "8080/knowage"
 
 docker_applications:
   - phpmyadmin
-  
+
 init_docker:
   knowage:
     db: mariadb
     db_name: knowage
-    db_username: knowagedb
+    db_username: knowage
     db_password: "123456"
-    username: biadmin
-    password: "biadmin"
+    admin_username: biadmin
+    admin_password: "biadmin"
     service_after: "docker.service"
     compose_path: "/data/wwwroot/knowage/knowage-server/docker-compose.yml"
     compose_commands:
-      - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/knowage-server/.env
-    volumes: 
+      - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/knowage-server/.env 
+    volumes:
       - /data/wwwroot/knowage/knowage-server/db/
       - /data/wwwroot/knowage/knowage-server/cache/
-      - /data/wwwroot/knowage/knowage-server/knowage-resources
     commands:
-      - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=$new_password/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml'
-      - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=$new_password/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml'
-
+      - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml'
+      - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml'
+      - sudo mysql -uroot -p$new_password -h 127.0.0.1 knowage -e "DELETE FROM knowage.SBI_USER;"
+      - sudo docker restart knowage
+      
