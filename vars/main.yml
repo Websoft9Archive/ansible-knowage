@@ -8,7 +8,7 @@ docker_applications:
   - phpmyadmin
   
 init_docker:
-  onlyoffice:
+  knowage:
     db: mariadb
     db_name: knowage
     db_username: knowagedb
@@ -16,16 +16,14 @@ init_docker:
     username: biadmin
     password: "biadmin"
     service_after: "docker.service"
-    compose_path: "/data/wwwroot/onlyoffice/docker-compose.yml"
+    compose_path: "/data/wwwroot/knowage/knowage-server/docker-compose.yml"
     compose_commands:
       - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/knowage-server/.env
     volumes: 
       - /data/wwwroot/knowage/knowage-server/db/
       - /data/wwwroot/knowage/knowage-server/cache/
+      - /data/wwwroot/knowage/knowage-server/knowage-resources
     commands:
-      - sudo docker exec -i knowage-server bash << EOF
-        sed -i 's/password="123456"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-        EOF
-      - sudo docker exec -i knowage-server bash << EOF 
-        sed -i 's/password="biadmin"/password="'$new_password'"/' /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-        EOF
+      - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=$new_password/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml'
+      - sudo docker exec -it knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=$new_password/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml'
+
