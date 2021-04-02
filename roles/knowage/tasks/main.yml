@@ -13,7 +13,6 @@
   git:
     repo: "{{knowage_git_url}}"
     dest: "/data/wwwroot/knowage"
-    version: dev
 
 - name: Run docker-compose 
   shell: | 
