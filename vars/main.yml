@@ -24,10 +24,9 @@ init_docker:
       - /data/wwwroot/knowage/knowage-server/db/
       - /data/wwwroot/knowage/knowage-server/cache/
     commands:
-      - sudo echo -e "\e[1;31m Password initialization takes about 3-5 minutes, please wait... \e[0m" /credentials/password.txt
       - sudo docker exec -i knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml'
       - sudo docker exec -i knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml'
       - sudo mysql -uroot -p$new_password -h 127.0.0.1 knowage -e "DELETE FROM knowage.SBI_USER;"
       - sudo docker restart knowage-server
-      
+      - sudo echo -e "\e[1;31m Password initialization takes about 3-5 minutes, please wait... \e[0m" |tee -a /credentials/password.txt
       
