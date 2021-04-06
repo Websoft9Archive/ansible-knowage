@@ -2,13 +2,29 @@
 
 使用由Websoft9提供的 Knowage 部署方案，可能需要用到的服务如下：
 
-### Knowage
+### Knowage Server on Docker
 
 ```shell
-sudo systemctl start knowage
-sudo systemctl stop knowage
-sudo systemctl restart knowage
-sudo systemctl status knowage
+sudo docker inspect knowage-server
+sudo docker start knowage-server
+sudo docker restart knowage-server
+sudo docker stop knowage-server
+sudo docker rm knowage-server
+
+# 进入容器运行命令
+sudo docker exec -it knowage-server /bin/bash
+```
+
+### MariaDB Server on Docker
+```shell
+sudo docker inspect knowage-mariadb-server
+sudo docker start knowage-mariadb-server
+sudo docker restart knowage-mariadb-server
+sudo docker stop knowage-mariadb-server
+sudo docker rm knowage-mariadb-server
+
+# 进入容器运行命令
+sudo docker exec -it knowage-mariadb-server /bin/bash
 ```
 
 ### Nginx
@@ -18,15 +34,6 @@ sudo systemctl start nginx
 sudo systemctl stop nginx
 sudo systemctl restart nginx
 sudo systemctl status nginx
-```
-
-### MySQL
-
-```shell
-sudo systemctl start mysql
-sudo systemctl stop mysql
-sudo systemctl restart mysql
-sudo systemctl status mysql
 ```
 
 ### Docker

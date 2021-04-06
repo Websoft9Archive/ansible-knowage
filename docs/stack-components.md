@@ -4,23 +4,9 @@ The Knowage deployment package contains a sequence software (referred to as "com
 
 ## Path
 
-### Knowage
+### Knowage server
 
-Knowage installation directory: */data/knowage*  
-Knowage logs directory: */data/wwwroot/knowage/Knowage-Server-CE/logs*  
-Knowage configuration directory: */data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config*
-
-### Java
-
-Java Edition：*OpenJDK*  
-JVM Directory： */usr/lib/jvm*  
-
-### Tomcat
-
-Knowage CE Installer provides Apache Tomcat 8 out of the box. Don’t worry about pre-installing any application server.  
-
-Tomcat configuration file: */data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml*  
-Tomcat bin: */data/wwwroot/knowage/Knowage-Server-CE/bin*
+Knowage server data directory: */data/wwwroot/knowage/resources*  
 
 ### Nginx
 
@@ -29,12 +15,11 @@ Nginx main configuration file: */etc/nginx/nginx.conf*
 Nginx logs file: */var/log/nginx*  
 Nginx rewrite rules directory: */etc/nginx/conf.d/rewrite* 
 
-### MYSQL
+### MariaDB
 
-MySQL installation directory: */usr/local/mysql*  
-MySQL data directory: */data/mysql*  
-MySQL configuration file: */etc/my.cnf*    
-MySQL Web Management URL: *http://Internet IP:9090*, get credential from [Username and Password](/stack-accounts.md)
+MariaDB data directory: */data/wwwroot/knowage/db*   
+MariaDB cache directory: */data/wwwroot/knowage/cache*      
+MariaDB Web Management URL: *http://Internet IP:9090*, get credential from [Username and Password](/stack-accounts.md)
 
 ### phpMyAdmin on Docker
 
@@ -53,9 +38,9 @@ You can run the cmd `netstat -tunlp` to list all used ports, and we list the fol
 
 | Name | Number | Use |  Necessity |
 | --- | --- | --- | --- |
-| HTTP | 8161 | HTTP requests for Knowage Console| Required |
-| HTTPS | 5672 | epmd | Optional |
-| TCP | 55672 | Erlang distribution | Optional |
+| HTTP | 80 | HTTP requests for Knowage Console| Required |
+| TCP | 3306 | TCP for MySQL | Optional |
+| TCP | 9090 | TCP for phpmyadmin | Optional |
 
 
 ## Version
@@ -77,7 +62,4 @@ java -v
 
 # Docker Version
 docker -v
-
-# tomcat  Version
-/data/wwwroot/knowage/Knowage-Server-CE/bin/version.sh
 ```

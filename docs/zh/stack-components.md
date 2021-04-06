@@ -8,23 +8,9 @@ Knowage 预装包包含 Knowage 运行所需一序列支撑软件（简称为“
 
 ## 路径
 
-### Knowage
+### Knowage server
 
-Knowage 安装目录： */data/knowage*  
-Knowage 日志目录： */data/wwwroot/knowage/Knowage-Server-CE/logs*  
-Knowage 配置目录： */data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config*
-
-### Tomcat
-
-Knowage CE Installer 内置集成式的 Tomcat7  
-
-Tomcat配置文件：*/data/wwwroot/knowage/Knowage-Server-CE/conf/server.xml*  
-Tomcat工具：*/data/wwwroot/knowage/Knowage-Server-CE/bin*
-
-### Java
-
-Java Edition：*OpenJDK*  
-JVM Directory： */usr/lib/jvm*  
+Knowage 服务器数据目：*/data/wwwroot/knowage/resources*    
 
 ### Nginx
 
@@ -33,12 +19,12 @@ Nginx 主配置文件： */etc/nginx/nginx.conf*
 Nginx 日志文件： */var/log/nginx*  
 Nginx 伪静态规则目录： */etc/nginx/conf.d/rewrite*
 
-### MYSQL
 
-MySQL 安装路径: */usr/local/mysql*  
-MySQL 数据文件 */data/mysql*  
-MySQL 配置文件: */etc/my.cnf*    
-MySQL 可视化管理地址: *http://服务器公网IP:9090*，用户名和密码请见 [账号密码](/zh/stack-accounts.md) 章节。
+### MariaDB
+
+MariaDB 数据目录：*/data/wwwroot/knowage/db*   
+MariaDB 缓存目录：*/data/wwwroot/knowage/cache*      
+MariaDB 可视化管理地址: *http://服务器公网IP:9090*，用户名和密码请见 [账号密码](/zh/stack-accounts.md) 章节。
 
 ### phpMyAdmin on Docker
 
@@ -80,7 +66,4 @@ java -v
 
 # Docker Version
 docker -v
-
-# tomcat  Version
-/data/wwwroot/knowage/Knowage-Server-CE/bin/version.sh
 ```
