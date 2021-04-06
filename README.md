@@ -70,7 +70,7 @@ Yes.
 
 #### How to install and view the latest release?
 
-This repository always install the latest version of Knowage, you can get the Knowage version from [Knowage repository](https://github.com/apache/incubator-knowage/releases)
+This repository always install the latest version of Knowage, you can get version from [Knowage repository](https://github.com/apache/incubator-knowage/releases)
 
 #### Is the default password safe?
 
