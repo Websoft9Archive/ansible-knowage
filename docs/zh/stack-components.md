@@ -46,6 +46,7 @@ Docker 镜像目录: */var/lib/docker/image*
 | TCP | 80 | 通过 HTTP 访问 Knowage 控制台 | 可选 |
 | TCP | 8080 | 通过 HTTP 访问 Tomcat 控制台 | 可选 |
 | TCP | 9090 | 通过 HTTP 访问 phpMyAdmin 控制台 | 可选 |
+| TCP | 3306 | MySQL 服务端口 | 可选 |
 
 ## 版本号
 
