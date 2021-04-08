@@ -39,16 +39,26 @@
 
 以管理员用户 biadmin 为例，介绍如何重置密码
 
-1. 使用 SFTP 工具登录服务器，修改下面两个文件中 userId="biadmin" password="********"
-   ```
-   /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-   /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-   ```
-
-2. 使用 phpMyAdmin 登录数据库，找到`knowage_ce`库下的 `SBI_USER`表，删除其中的【biadmin】整行
+1. 使用 phpMyAdmin 登录数据库，找到`knowage_ce`库下的 `SBI_USER`表，删除其中的【biadmin】整行
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-deletedbbiadmin-websoft9.png)
 
-3. 重启 Knowage 服务
+2. 重启容器服务
    ```
-   systemctl restart knowage
+   sudo docker restart knowage-server
    ```
+
+3. 进入到 knowage-server容器，查看密码
+   ```
+   docker exec -it knowage-server bash
+   cat /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml | grep "password"
+   ```
+
+## 多语言
+
+Knowage 支持多语言（不包含中文），下面介绍如何切换语言：
+
+1. 登录 Knowage 后台
+
+2. 打开左侧菜单的：【KNOWAGE ADMINISTRATOR】>【Languages】，设置你所需的语言
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-setlanguages-websoft9.png)

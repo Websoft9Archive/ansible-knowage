@@ -10,7 +10,7 @@ If you have completed the Knowage deployment on Cloud Platform, the following st
 
 ## Knowage Installation Wizard
 
-1. Using local Chrome or Firefox to visit the URL *http://DNS:15672* or *http://Internet IP:15672*, you will enter login page of Knowage
+1. Using local Chrome or Firefox to visit the URL *http://DNS* or *http://Server's Internet IP*, you will enter login page of Knowage
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-login-websoft9.png)
 
    > You can visit Knowage by the URL: *http://Internet IP:8080/knowage* also
@@ -25,10 +25,16 @@ If you have completed the Knowage deployment on Cloud Platform, the following st
 
 > More useful Knowage guide, please refer to [Knowage Documentation](https://knowage-suite.readthedocs.io/)
 
+## Knowage Setup wizard
+
+Coming soon
+
 ## Q&A
 
 #### I can't visit the start page of Knowage?
 
 Your TCP:80 of Security Group Rules is not allowed so there no response from Chrome or Firefox
 
-#### Knowage service can't start? 
+#### Why can I visit Knowage directly?
+
+This solution use Nginx for proxy the real URL: *http://Server's Internet IP:8080/knowage*

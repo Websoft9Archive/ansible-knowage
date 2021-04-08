@@ -16,39 +16,38 @@ Knowage domain name binding steps:
    server
    {
    listen 80;
-   server_name www.example.com;  # 此处修改为你的域名
+   server_name www.example.com;  # set you domain here
    ...
    }
    ```
 
-## 密码管理
+## Resetting Password
 
-修改密码即通过已有的密码正常登录系统后，再重新设置一个新密码；  
-重置密码即忘记了登录密码，需要通过特殊的手段重新设置一个密码。
+There are two main measures to reset password.
 
-### 修改密码
+### Changing password
 
-以管理员用户 biadmin 为例，介绍如何修改密码
+Take the steps below for modify the password of user `biadmin`
 
-1. 登录 Knowage 后台
-2. 依次打开：【Profile Management】>【Users Management】 修改密码
+1. Login to Knowage console
+2. Open:【Profile Management】>【Users Management】 and modify password
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-changepw-websoft9.png)
 
 
-### 重置密码
+### Forgot Password
 
-以管理员用户 biadmin 为例，介绍如何重置密码
+Take the steps below for reset the password of user `biadmin`
 
-1. 使用 SFTP 工具登录服务器，修改下面两个文件中 userId="biadmin" password="********"
-   ```
-   /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml
-   /data/wwwroot/knowage/Knowage-Server-CE/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml
-   ```
-
-2. 使用 phpMyAdmin 登录数据库，找到`knowage_ce`库下的 `SBI_USER`表，删除其中的【biadmin】整行
+1. Use **phpMyAdmin** to login MariaDB, find the table `SBI_USER` in the database `knowage`, delete the line【biadmin】
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/knowage/knowage-deletedbbiadmin-websoft9.png)
 
-3. 重启 Knowage 服务
+2. Restart knowage-server
    ```
-   systemctl restart knowage
+   sudo docker restart knowage-server
+   ```
+
+3. Cat the password in the knowage-server container
+   ```
+   docker exec -it knowage-server bash
+   cat /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml | grep "password"
    ```

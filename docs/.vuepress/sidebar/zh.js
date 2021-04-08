@@ -16,7 +16,7 @@ module.exports = [
     title: '实践指南',
     collapsable: false,
     children: [
-      '/zh/solution-datasource',
+      '/zh/solution-userguide',
       '/zh/solution-https',
       '/zh/solution-backup',
       '/zh/solution-upgrade',
@@ -30,8 +30,7 @@ module.exports = [
     children: [
       '/zh/admin-services',
       '/zh/admin-mysql',
-      ['https://support.websoft9.com/docs/linux/zh/webs-tomcat.html','Tomcat'],
-      ['https://support.websoft9.com/docs/linux/zh/lang-java.html','Java'],
+      ['https://support.websoft9.com/docs/linux/zh/webs-nginx.html','Nginx'],
       ['https://support.websoft9.com/docs/linux/zh/admin-practices.html','Linux'],
     ]
   },

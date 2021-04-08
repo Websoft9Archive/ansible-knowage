@@ -24,4 +24,20 @@ yum update -y --skip-broken
 
 ## Knowage 升级
 
-详情参考官方升级文档：[How to upgrade to the latest version](https://knowage-suite.readthedocs.io/en/7.1/installation-guide/upgrade.html#)
+本部署基于 Docker 安装，故遵循 Docker 标准的升级流程，具体方案如下：
+
+> 升级 Knowage 之前，请务必做好服务器的快照备份。
+
+1. 使用 SSH 登录到服务器，进入到 docker-compose 文件所在的目录后拉取最新的 Docker 镜像
+   ```
+   cd /data/knowage/knowage-server
+   docker-compose pull
+   ```
+2. 停止当前的运行容器
+   ```
+   docker-compose down -v
+   ```
+3. 重新创建新的容器
+   ```
+   docker-compose up -d
+   ```

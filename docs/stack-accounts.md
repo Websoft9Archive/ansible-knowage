@@ -8,26 +8,27 @@ These accounts are required for Knowage image installation and configuration
 
 ## Knowage
 
-* Knowage administrator username: `demo_admin`
+* Knowage administrator username: `biadmin`
 * Knowage administrator password: stored in the file of your server */credentials/password.txt*
-  > If there no password.txt exist, the administrator password is `demo_admin`
 
-## MySQL
+## MariaDB
 
-* MySQL administrator username: `root`
-* MySQL administrator password: stored in the file of your server */credentials/password.txt*
+* MariaDB administrator username: `root`
+* MariaDB administrator password: stored in the file of your server */credentials/password.txt*
 
 ## Linux
 
-* Host Name: Internet IP or Public IP of your Instance
+* Host Name: Server's Internet IP or Public IP of your Instance
 * Connect by: Online SSH on Cloud Console or SFTP/SSH tools on your local computer
-* Password: It was set by yourself when created instance
-* Username: Different Cloud Platform has differences
+* Password: It was set by yourself when created instance.
+* Username: Different Cloud Platform has differences.
    |  Cloud Platform   |  Administrator Username   | Other |
    | --- | --- | --- |
-   |  Azure   |  It was set by yourself when created instance   | [How to enable root access?](https://support.websoft9.com/docs/azure/server-login.html#sample2-enable-the-root-username) |
+   |  Azure   |  It was set by yourself when created instance.   | [How to enable root access?](https://support.websoft9.com/docs/azure/server-login.html#sample2-enable-the-root-username) |
    |  AWS CentOS   |  centos   | [How to enable root access?](https://support.websoft9.com/docs/aws/server-login.html#sample2-enable-the-root-username) |
+   |  AWS AmaonLinux   |  ec2-user   | [How to enable root access?](https://support.websoft9.com/docs/aws/server-login.html#sample2-enable-the-root-username) |
    |  AWS Ubuntu   |  ubuntu   | [How to enable root access?](https://support.websoft9.com/docs/aws/server-login.html#sample2-enable-the-root-username) |
    |  Alibaba Cloud, HUAWEI CLOUD, Tencent Cloud |  root   |
 
-   > If don't remember the password of Linux, you should reset password on Cloud Console
+   > If you forgot the password of Linux, reset it on Cloud Console.
+

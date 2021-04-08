@@ -8,9 +8,20 @@ Knowage 预装包包含 Knowage 运行所需一序列支撑软件（简称为“
 
 ## 路径
 
+本项目采用 Docker 安装，运行 `docker ps` 可以查看所有相关的容器：
+
+```
+CONTAINER ID   IMAGE                                              COMMAND                  CREATED        STATUS                 PORTS                               NAMES
+3b30d327e903   mariadb:10.3                                       "docker-entrypoint.s…"   2 hours ago    Up 2 hours             0.0.0.0:3307->3306/tcp              knowage-mariadb-server
+a28572948615   knowagelabs/knowage-server-docker:8.0.0-SNAPSHOT   "./entrypoint.sh ./a…"   2 hours ago    Up 2 hours (healthy)   0.0.0.0:8080->8080/tcp              knowage-server
+90d49e9971bf   mariadb:10.3                                       "docker-entrypoint.s…"   2 hours ago    Up 2 hours             3306/tcp                            knowage-mariadb-cache
+fa5d3ce16865   knowagelabs/knowage-python-docker:8.0.0-SNAPSHOT   "./entrypoint.sh gun…"   2 hours ago    Up 2 hours (healthy)   5000/tcp                            knowage-python
+7fbfe56727d5   knowagelabs/knowage-r-docker:8.0.0-SNAPSHOT        "./entrypoint.sh r k…"   2 hours ago    Up 2 hours (healthy)   5001/tcp                            knowage-r
+```
+
 ### Knowage server
 
-Knowage 服务器数据目：*/data/wwwroot/knowage/resources*    
+Knowage-Server 资源目录：*/data/wwwroot/knowage/resources*  
 
 ### Nginx
 
@@ -19,12 +30,10 @@ Nginx 主配置文件： */etc/nginx/nginx.conf*
 Nginx 日志文件： */var/log/nginx*  
 Nginx 伪静态规则目录： */etc/nginx/conf.d/rewrite*
 
-
 ### MariaDB
 
-MariaDB 数据目录：*/data/wwwroot/knowage/db*   
-MariaDB 缓存目录：*/data/wwwroot/knowage/cache*      
-MariaDB 可视化管理地址: *http://服务器公网IP:9090*，用户名和密码请见 [账号密码](/zh/stack-accounts.md) 章节。
+MariaDB 数据目录：*/data/db/mariadb*  
+MariaDB 可视化管理地址: *http://服务器公网IP:9090*，用户名和密码请见 [账号密码](/zh/stack-accounts.md) 章节。  
 
 ### phpMyAdmin on Docker
 
@@ -46,7 +55,7 @@ Docker 镜像目录: */var/lib/docker/image*
 | TCP | 80 | 通过 HTTP 访问 Knowage 控制台 | 可选 |
 | TCP | 8080 | 通过 HTTP 访问 Tomcat 控制台 | 可选 |
 | TCP | 9090 | 通过 HTTP 访问 phpMyAdmin 控制台 | 可选 |
-| TCP | 3306 | MySQL 服务端口 | 可选 |
+| TCP | 3306 | MariaDB 服务端口 | 可选 |
 
 ## 版本号
 
@@ -62,9 +71,13 @@ lsb_release -a
 # Nginx  Version
 nginx -V
 
-# Java version
-java -v
-
 # Docker Version
 docker -v
+
+# MariaDB version
+
+docker inspect knowage-mariadb-server | grep "MARIADB_VERSION"
+
+# Knowage Version
+docker images |grep knowagelabs |awk '{print $2}' |head -1 |cut -d- -f1
 ```

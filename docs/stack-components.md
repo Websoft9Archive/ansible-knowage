@@ -17,8 +17,7 @@ Nginx rewrite rules directory: */etc/nginx/conf.d/rewrite*
 
 ### MariaDB
 
-MariaDB data directory: */data/wwwroot/knowage/db*   
-MariaDB cache directory: */data/wwwroot/knowage/cache*      
+MariaDB data directory: */data/db/mariadb*  
 MariaDB Web Management URL: *http://Internet IP:9090*, get credential from [Username and Password](/stack-accounts.md)
 
 ### phpMyAdmin on Docker
@@ -39,7 +38,8 @@ You can run the cmd `netstat -tunlp` to list all used ports, and we list the fol
 | Name | Number | Use |  Necessity |
 | --- | --- | --- | --- |
 | HTTP | 80 | HTTP requests for Knowage Console| Required |
-| TCP | 3306 | TCP for MySQL | Optional |
+| HTTPS | 443 | HTTPS requests for Knowage Console| Optional |
+| TCP | 3306 | TCP for MariaDB | Optional |
 | TCP | 9090 | TCP for phpmyadmin | Optional |
 
 
@@ -57,9 +57,13 @@ lsb_release -a
 # Nginx  Version
 nginx -V
 
-# Java version
-java -v
-
 # Docker Version
 docker -v
+
+# MariaDB version
+
+docker inspect knowage-mariadb-server | grep "MARIADB_VERSION"
+
+# Knowage Version
+docker images |grep knowagelabs |awk '{print $2}' |head -1 |cut -d- -f1
 ```

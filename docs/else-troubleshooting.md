@@ -6,7 +6,7 @@ We collect the most common troubleshooting of using Knowage for your reference:
 
 #### How can I use the logs?
 
-You can find the keywords **Failed** or **error** from the logs directory: `/data/logs`
+You can find the keywords **Failed** or **error** by the command: `docker logs knowage-server`
 
 #### Knowage service can't start?
 
@@ -16,8 +16,8 @@ It is recommended to first check through the command.
 
 ```shell
 # restart Knowage service
-systemctl status knowage
-journalctl -u knowage
+docker restart knowage-server
+docker logs knowage-server
 
 # view disk space
 df -lh

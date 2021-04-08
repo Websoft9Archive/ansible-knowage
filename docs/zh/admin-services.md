@@ -39,8 +39,8 @@ sudo systemctl status nginx
 ### Docker
 
 ```shell
-systemctl start docker
-systemctl stop docker
-systemctl restart docker
-systemctl status docker
+sudo systemctl start docker
+sudo systemctl stop docker
+sudo systemctl restart docker
+sudo systemctl status docker
 ```

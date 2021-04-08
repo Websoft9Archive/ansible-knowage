@@ -1,20 +1,16 @@
 # FAQ
 
+#### Knowage 支持多语言吗？
+
+支持，但不包含中文
+
 #### 采用哪种方式安装 Knowage？
 
-本项目采用 Knowage CE Installer 安装方式，它集成了 Knowage 和 Tomcat
+本项目采用官方的 Docker 镜像安装，同时预设了持久化存储
 
 #### Knowage 与 SpagoBI 有什么关系？
 
 Knowage 是 SpagoBI 更名后的产品
-
-#### 如何彻底清除 Knowage 缓存？
-
-停止服务后，删除缓存目录
-```
-sudo systemctl knowage
-rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
-```
 
 #### 如果没有域名是否可以部署 Knowage？
 
@@ -24,15 +20,9 @@ rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
 
 密码存放在服务器相关文件中：`/credentials/password.txt`
 
-可以，访问`http://服务器公网IP` 即可
-
 #### 是否有可视化的数据库管理工具？
 
 有，内置phpMyAdmin，访问地址：*http://服务器公网IP:9090*
-
-#### 是否可以修改 Knowage 的源码路径？
-
-不可以
 
 #### 如何修改上传的文件权限?
 
