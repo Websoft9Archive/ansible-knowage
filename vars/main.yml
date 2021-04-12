@@ -16,13 +16,12 @@ init_docker:
     admin_username: biadmin
     admin_password: "biadmin"
     service_after: "docker.service"
-    compose_path: "/data/wwwroot/knowage/knowage-server/docker-compose.yml"
+    compose_path: "/data/wwwroot/knowage/docker-compose-production.yml"
     compose_commands:
-      - cd /data/wwwroot/knowage/knowage-server
-      - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/knowage-server/.env 
+      - cd /data/wwwroot/knowage
+      - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/.env 
     volumes:
-      - /data/wwwroot/knowage/knowage-server/db/
-      - /data/wwwroot/knowage/knowage-server/cache/
+      - /data/wwwroot/knowage/volumes
     commands:
       - sudo docker exec -i knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/config/internal_profiling.xml'
       - sudo docker exec -i knowage-server bash -c 'sed -i "s/password=\"biadmin\"/password=\"'$new_password'\"/g" /home/knowage/apache-tomcat/webapps/knowage/WEB-INF/conf/webapp/authorizations.xml'

@@ -7,8 +7,9 @@
     path: "{{item}}"
   loop: 
     - /data/wwwroot/knowage
+    - /data/wwwroot/knowage/volumes
     - /data/db/mariadb
-    
+
 - name: Clone knowage in Websoft9 
   git:
     repo: "{{knowage_git_url}}"
@@ -16,10 +17,10 @@
 
 - name: Run docker-compose 
   shell: | 
-    docker-compose up -d
+    docker-compose -f docker-compose-production.yml up -d
     sleep 30
   args:
-    chdir: /data/wwwroot/knowage/knowage-server
+    chdir: /data/wwwroot/knowage
 
 # knowage nginx rewrite setting and restart nginx
 - name: knowage nginx rewrite setting
@@ -40,8 +41,8 @@
     state: link
     force: yes
   with_items:
-  - {src: /data/wwwroot/knowage/knowage-server/db/,dest: /data/db/mariadb/db}
-  - {src: /data/wwwroot/knowage/knowage-server/cache/,dest: /data/db/mariadb/db/cache}
+  - {src: /data/wwwroot/knowage/volumes/db/,dest: /data/db/mariadb/db}
+  - {src: /data/wwwroot/knowage/volumes/cache/,dest: /data/db/mariadb/db/cache}
 
 # check service and version
 - name: Check knowage service 
