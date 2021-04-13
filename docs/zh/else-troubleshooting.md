@@ -4,9 +4,9 @@
 
 > 大部分故障与云平台密切相关，如果你可以确认故障的原因是云平台造成的，请参考[云平台文档](https://support.websoft9.com/docs/faq/zh/tech-instance.html)
 
-#### 如何查看错误日志？
+#### 如何查看 Knowage-Server 错误日志？
 
-日志文件路径为：`/data/logs`。检索关键词 **Failed** 或者 **error** 查看错误
+运行命令 `docker logs knowage-server` 即可查看错误日志
 
 #### Knowage服务无法启动？
 
@@ -20,7 +20,6 @@ df -lh
 # 查看内存使用
 free -lh
 
-# 查看服务状态和日志
-systemctl status knowage
-journalctl -u knowage
+# 查看日志
+docker logs knowage-server
 ```

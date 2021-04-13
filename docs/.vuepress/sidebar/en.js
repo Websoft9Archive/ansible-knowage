@@ -15,7 +15,7 @@ module.exports = [
         title: 'Best Practices',
         collapsable: false,
         children: [
-          '/solution-datasource',
+          '/solution-userguide',
           '/solution-https',
           '/solution-backup',
           '/solution-upgrade',
@@ -29,8 +29,7 @@ module.exports = [
         children: [
           '/admin-services',
           '/admin-mysql',
-          ['https://support.websoft9.com/docs/linux/webs-tomcat.html','Tomcat'],
-          ['https://support.websoft9.com/docs/linux/lang-java.html','Java'],
+          ['https://support.websoft9.com/docs/linux/webs-nginx.html','Nginx'],
           ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
         ]
       },

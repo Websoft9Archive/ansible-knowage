@@ -26,4 +26,20 @@ yum update -y --skip-broken
 
 ## Knowage Upgrade
 
-Refer to the official docs: [How to upgrade to the latest version](https://knowage-suite.readthedocs.io/en/7.1/installation-guide/upgrade.html#)
+This deployment solution is based on Docker and so you can upgrade Knowage by the standard process of Docker:  
+
+> You should complete a snapshot backup before upgrade
+
+1. Use **SSH** to login Server, cd to the directory of docker-compose file, then pull images
+   ```
+   cd /data/knowage/knowage-server
+   docker-compose pull
+   ```
+2. Stop the containers
+   ```
+   docker-compose down -v
+   ```
+3. Recreate containers
+   ```
+   docker-compose up -d
+   ```

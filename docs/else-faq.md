@@ -2,7 +2,7 @@
 
 #### Install knowledge in this way?
 
-The repository use the Knowage CE Installer for installation, it integrated the Knowage in Tomcat
+The repository use the Docker installation
 
 #### What the relationship between Knowage and SpagoBI?
 
@@ -12,21 +12,13 @@ Knowage is the evolution of SpagoBI
 
 Knowage caches datasets into a temporary storage, that is actually a JDBC datasource. The configuration of this datasource is mandatory for ad-hoc reporting functionalities. You need to define a JDBC datasource (MySQL, HSQLDB, ...) as described in the above paragraph, but pay attention that this datasource should be configured (in the Knowage web GUI detail page) as "Read and write" and "Write default", and it must be enabled in all tenants.
 
-#### How can I clear Knowage cache completely?
+#### Can I reset password of Knowage?
 
-Stop the Knowage service and delete the work cache directory
-```
-sudo systemctl knowage
-rm -rf /data/wwwroot/knowage/Knowage-Server-CE/work/Catalina
-```
-
-#### Can I reset password of Knowage by command?
-
-Yes, e.g `knowagectl change_password  admin newpassword`
+Yes, refer to [Resetting Password](/solution-more.md#resetting-password)
 
 #### If there is no domain name, can I deploy Knowage?
 
-Yes, visit Knowage by *http://Internet IP:8080/knowage* or *http://Internet IP*
+Yes, visit Knowage by *http://Server's Internet IP:8080/knowage* or *http://Server's Internet IP*
 
 #### What is the password for the database root user?
 
@@ -34,7 +26,7 @@ The password is stored in the server related file: `/credentials/password.txt`
 
 #### Is there a web-base GUI database management tools?
 
-Yes, phpMyAdmin is on it, visit by *http://Internet IP:9090*
+Yes, phpMyAdmin is on it, visit by *http://Server's Internet IP:9090*
 
 #### Is it possible to modify the source path of Knowage?
 
