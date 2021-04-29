@@ -23,7 +23,7 @@ To learn more information, please view [Installation & Configuration](https://ww
 
 ## Ecosystem
 
-Core components of this repository: Apache Knowage, Nginx, MySQL, Docker, pgAdmin on docker
+Core components of this repository: Apache Knowage, Nginx, MariaDB, Docker, phpmyadmin on docker
 
 Learn more about [Parameters](/docs/stack-components.md).
 
