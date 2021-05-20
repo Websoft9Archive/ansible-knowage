@@ -1,16 +1,9 @@
 # CHANGELOG
 
+## Knowage v8.0.0-1 2021-04-16
+### Fixes and Enhancements
+- update install way to Docker
 
-
-## To do
-
-1. azure error on task: Knowage.sh
-
-## Logs
-
-### Bug Fixes
-
-
-### Features
-
-* 2020-07-08  Created
+## Knowage v7.4-1 2021-05-20
+### Fixes and Enhancements
+- 8.0.0-SNAPSHOT is unstable, return to 7.4
