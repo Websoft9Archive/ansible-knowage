@@ -1,4 +1,3 @@
-common_install_docker: True
 docker_install: False
 mysql_install_server: False
 
@@ -16,7 +15,7 @@ init_docker:
     admin_username: biadmin
     admin_password: "biadmin"
     service_after: "docker.service"
-    compose_path: "/data/wwwroot/knowage/docker-compose-production.yml"
+    compose_path: "/data/wwwroot/knowage/docker-compose.yml"
     compose_commands:
       - cd /data/wwwroot/knowage
       - sudo sed -i "s/123456/$new_password/g" /data/wwwroot/knowage/.env 

@@ -1,25 +1,28 @@
 - name: Delete knowage dir for sec_installation
-  shell: rm -rf /data/wwwroot/knowage
+  shell: rm -rf {{knowage_work_dir}}
 
 - name: Clone knowage in Websoft9 
   git:
     repo: "{{knowage_git_url}}"
-    dest: "/data/wwwroot/knowage"
+    dest: "{{knowage_work_dir}}"
 
 - name: Create dir for knowage
   file: 
     state: directory
     path: "{{item}}"
   loop: 
-    - /data/wwwroot/knowage/volumes
+    - '{{knowage_work_dir}}/volumes'
     - /data/db/mariadb
     
-- name: Run docker-compose 
+- name: Rename and Run docker-compose 
   shell: | 
-    docker-compose -f docker-compose-production.yml up -d
+    rm -rf docker-compose.yml .env
+    mv docker-compose-production.yml docker-compose.yml
+    mv .env_all .env
+    docker-compose up -d
     sleep 30
   args:
-    chdir: /data/wwwroot/knowage
+    chdir: '{{knowage_work_dir}}'
 
 # knowage nginx rewrite setting and restart nginx
 - name: knowage nginx rewrite setting
@@ -40,8 +43,8 @@
     state: link
     force: yes
   with_items:
-  - {src: /data/wwwroot/knowage/volumes/db/,dest: /data/db/mariadb/db}
-  - {src: /data/wwwroot/knowage/volumes/cache/,dest: /data/db/mariadb/db/cache}
+  - {src: '{{knowage_work_dir}}/volumes/db/',dest: /data/db/mariadb/db}
+  - {src: '{{knowage_work_dir}}/volumes/cache/',dest: /data/db/mariadb/db/cache}
 
 # check service and version
 - name: Check knowage service 

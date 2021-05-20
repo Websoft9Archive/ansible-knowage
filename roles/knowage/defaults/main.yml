@@ -1,2 +1,4 @@
 knowage_git_url: "https://github.com/Websoft9/docker-knowage.git"
 
+knowage_work_dir: "/data/wwwroot/knowage"
+
