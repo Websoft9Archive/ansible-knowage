@@ -1,7 +1,7 @@
 docker_install: False
 mysql_install_server: False
 
-nginx_reverse_proxy_port: "8080/knowage"
+nginx_reverse_proxy_port: "9001/knowage"
 
 docker_applications:
   - phpmyadmin
