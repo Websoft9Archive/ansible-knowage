@@ -1,5 +1,8 @@
 docker_install: False
-mysql_install_server: False
+
+# install mariadb client
+mariadb_install_server: False
+mariadb_version: "10.3"  
 
 nginx_reverse_proxy_port: "9001/knowage"
 
