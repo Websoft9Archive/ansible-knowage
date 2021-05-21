@@ -19,7 +19,7 @@ System Requirement to install this repository are as following：
 | Private Cloud     | KVM, VMware, VirtualBox, OpenStack    | Optional                 |
 | Server Configuration | vCPU no less than 1 core, Memory no less than  4 GIB, Storage no less than 10 GB, Bandwidth no less than 100M ||
 
-To learn more information, please view [Installation & Configuration](https://www.knowage-suite.com/site/knowage-download/#docker).
+To learn more information, please view [Installation & Configuration](https://knowage-suite.readthedocs.io/en/7.4/installation-guide/requirements.html).
 
 ## Ecosystem
 
