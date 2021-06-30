@@ -5,6 +5,7 @@
   git:
     repo: "{{knowage_git_url}}"
     dest: "{{knowage_work_dir}}"
+    version: dev
 
 - name: Create dir for knowage
   file: 
