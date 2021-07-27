@@ -15,3 +15,10 @@
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-arch-websoft9.jpg)
 
 ## 大数据基础
+
+
+## 添加数据源
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-datasource-websoft9.jpg)
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-addjdbc-websoft9.jpg)
