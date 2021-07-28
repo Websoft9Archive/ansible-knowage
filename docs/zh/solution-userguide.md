@@ -19,6 +19,6 @@
 
 ## 添加数据源
 
-![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-datasource-websoft9.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-datasource-websoft9.png)
 
-![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-addjdbc-websoft9.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/knowage/knowage-addjdbc-websoft9.png)
