@@ -28,8 +28,10 @@
 
 ## Knowage 入门向导
 
-下面我们以一个完整的示例（**可视化呈现订单中不同国家的订单总额**），介绍如何使用 Knowage 快速分析数据：
-基本步骤分为 4 步：连接数据源，数据建模，配置数据集，数据可视化呈现。前2步为IT人员的数据准备，后2步为业务人员的自助分析。
+下面我们以一个完整的示例（**可视化呈现订单中不同国家的订单总额**），介绍如何使用 Knowage 快速分析数据。
+
+基本步骤分为 4 步：连接数据源，数据建模，配置数据集，数据可视化呈现。
+前2步为IT人员的数据准备，后2步为业务人员的自助分析。
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-websoft9.png)
 
@@ -49,7 +51,7 @@
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-dataset3-websoft9.png)
 
-### 数据呈现，设置可视化呈现方式（）。根据场景也可以将数据以其他的可视化业务报表（仪表盘）呈现，供决策、分析使用。
+### 数据呈现，设置可视化呈现方式（CHART）。根据场景也可以将数据以其他的可视化业务报表（仪表盘）呈现，供决策、分析使用。
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-analysis-websoft9.png)
 
@@ -57,8 +59,10 @@
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-analysis2-websoft9.png)
 
+选择数据集
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-analysis3-websoft9.png)
 
+配置数据项
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-analysis4-websoft9.png)
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-analysis5-websoft9.png)
