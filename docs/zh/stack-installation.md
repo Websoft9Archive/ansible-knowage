@@ -35,15 +35,15 @@
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-websoft9.png)
 
-### 连接数据源：连接 MySQL 数据库服务器；
+1. 连接数据源：连接 MySQL 数据库服务器；
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-datasource-websoft9.png)
 
-### 数据建模：根据业务场景从数据源中选取数据，建模；
+2. 数据建模：根据业务场景从数据源中选取数据，建模；
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-model-websoft9.png)
 
-### 配置数据集：业务人员从模型中二次筛选数据，分析和呈现；
+3. 配置数据集：业务人员从模型中二次筛选数据，分析和呈现；
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-dataset1-websoft9.png)
 
@@ -51,7 +51,7 @@
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-dataset3-websoft9.png)
 
-### 数据呈现，设置可视化呈现方式（CHART）。根据场景也可以将数据以其他的可视化业务报表（仪表盘）呈现，供决策、分析使用。
+4. 数据呈现，设置可视化呈现方式（CHART）。根据场景也可以将数据以其他的可视化业务报表（仪表盘）呈现，供决策、分析使用。
 
 ![knowage](https://libs.websoft9.com/Websoft9/blog/tmp/knowage/zh/knowage-analysis-websoft9.png)
 
