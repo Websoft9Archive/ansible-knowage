@@ -53,7 +53,7 @@ Docker 镜像目录: */var/lib/docker/image*
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
 | TCP | 80 | 通过 HTTP 访问 Knowage 控制台 | 可选 |
-| TCP | 8080 | 通过 HTTP 访问 Tomcat 控制台 | 可选 |
+| TCP | 9001 | 通过 HTTP 访问 Knowage 控制台 | 可选 |
 | TCP | 9090 | 通过 HTTP 访问 phpMyAdmin 控制台 | 可选 |
 | TCP | 3306 | MariaDB 服务端口 | 可选 |
 
